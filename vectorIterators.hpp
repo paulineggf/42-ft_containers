@@ -10,6 +10,13 @@ template<typename T>
 ft::vector<T>::iterator::~iterator() {}
 
 template<typename T>
+typename ft::vector<T>::iterator    ft::vector<T>::iterator::operator+(int nb)
+{
+    ft::vector<T>::iterator it(_arg, nb);
+    return it;
+}
+
+template<typename T>
 void    ft::vector<T>::iterator::operator++(int)
 {
     _idx += 1;
@@ -45,6 +52,18 @@ bool    ft::vector<T>::iterator::operator!=(const ft::vector<T>::iterator &rhs)
     if (this->_idx != rhs._idx)
         return true;
     return false;
+}
+
+template<typename T>
+size_t      ft::vector<T>::iterator::getIdx()
+{
+    return _idx;
+}
+
+template<typename T>
+void    ft::vector<T>::iterator::operator=(ft::vector<T> *rhs)
+{
+    _idx = rhs->size();
 }
 
 template<typename T>
@@ -95,14 +114,14 @@ bool    ft::vector<T>::reverse_iterator::operator!=(const ft::vector<T>::reverse
 }
 
 template<typename T>
-typename ft::vector<T>::iterator    ft::vector<T>::begin()
+typename ft::vector<T>::iterator            ft::vector<T>::begin()
 {
     ft::vector<T>::iterator it(this, 0);
     return it;
 }
 
 template<typename T>
-typename ft::vector<T>::iterator    ft::vector<T>::end()
+typename ft::vector<T>::iterator            ft::vector<T>::end()
 {
     ft::vector<T>::iterator it(this, this->size());
     return it;
@@ -120,4 +139,10 @@ typename ft::vector<T>::reverse_iterator    ft::vector<T>::rend()
 {
     ft::vector<T>::reverse_iterator it(this, -1);
     return it;
+}
+
+template<typename T>
+size_t      ft::vector<T>::reverse_iterator::getIdx()
+{
+    return _idx;
 }

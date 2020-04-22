@@ -44,13 +44,35 @@ void                        ft::vector<T>::clear()
 }
 
 template<typename T>
-ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterator position)
+typename ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterator pos)
 {
-    
+    int i;
+
+    i = 0;
+    while (pos.getIdx() < _size)
+    {
+        pos++;
+        _arg[pos.getIdx() - 1] = *pos;
+        i++;
+    }
+    _size -= 1;
+    pos = this;
+    return pos;
 }
 
 template<typename T>
-ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterator first, ft::vector<T>::iterator last)
+typename ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterator first, ft::vector<T>::iterator last)
 {
+    int     end;
 
+    end = _size;
+    _size -= last.getIdx() - first.getIdx();
+    while (last.getIdx() < end)
+    {
+        _arg[first.getIdx()] = *last;
+        last++;
+        first++;
+    }
+    first = this;
+    return first;
 }

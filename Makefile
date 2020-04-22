@@ -4,7 +4,7 @@ OBJS = $(SRCS:.cpp=.o)
 NAME = ft_containers
 RM = rm -f
 CC = clang++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g3 -std=c++98
 
 all: $(NAME)
 

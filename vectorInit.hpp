@@ -2,9 +2,10 @@
 
 template<typename T>
 ft::vector<T>::vector() :
+_arg(nullptr),
 _capacity(0),
-_size(0),
-_arg(nullptr) {}
+_size(0)
+{}
 
 template<typename T>
 ft::vector<T>::vector(int capacity) :

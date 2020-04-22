@@ -9,7 +9,7 @@ int                             ft::vector<T>::capacity()
 }
 
 template<typename T>
-int                             ft::vector<T>::size()
+size_t                             ft::vector<T>::size() const
 {
     return _size;
 }

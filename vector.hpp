@@ -32,12 +32,16 @@ namespace ft
             iterator(vector<T> *arg, int idx);
             ~iterator();
 
+            iterator        operator+(int nb);
             void            operator++();
             void            operator++(int);
             void            operator--();
             void            operator--(int);
             T               &operator*();
             bool            operator!=(const iterator &rhs);
+            void            operator=(vector<T> *rhs);
+
+            size_t          getIdx();
         };
 
         class       reverse_iterator
@@ -58,6 +62,8 @@ namespace ft
             void            operator--(int);
             T               &operator*();
             bool            operator!=(const reverse_iterator &rhs);
+        
+            size_t          getIdx();
         };
 
         iterator            begin();
@@ -80,7 +86,7 @@ namespace ft
         // CAPACITY
 
         int                 capacity();
-        int                 size();
+        size_t              size() const;
         long int            max_size();
         void                resize(int resize);
         void                resize(int resize, T val);
@@ -97,7 +103,7 @@ namespace ft
         void                push_back(T arg);
         void                pop_back();
         void                clear();
-        iterator            erase(iterator position);
+        iterator            erase(iterator pos);
         iterator            erase(iterator first, iterator last);
 
     };
