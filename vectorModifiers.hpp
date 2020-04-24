@@ -61,7 +61,8 @@ typename ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterato
 }
 
 template<typename T>
-typename ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterator first, ft::vector<T>::iterator last)
+typename ft::vector<T>::iterator    ft::vector<T>::erase(ft::vector<T>::iterator first,
+                                    ft::vector<T>::iterator last)
 {
     int     end;
 
@@ -75,4 +76,57 @@ typename ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterato
     }
     first = this;
     return first;
+}
+
+template<typename T>
+template<class InputIterator>
+void        ft::vector<T>::assign(InputIterator first, InputIterator last)
+{
+    while (first != last)
+    {
+        this->push_back(*first);
+        first++;
+    }
+}
+
+template<typename T>
+void        ft::vector<T>::assign(size_t n, const T &val)
+{
+    if (n > _capacity)
+        this->reserve(n);
+    for (int i = 0; i < n; i++)
+        _arg[i] = val;
+    _size = n;
+}
+
+template<typename T>
+void        ft::vector<T>::assign(int n, int val)
+{
+    if (n > _capacity)
+        this->reserve(n);
+    for (int i = 0; i < n; i++)
+        _arg[i] = val;
+    _size = n;
+}
+
+template<typename T>
+ft::vector<T>::iterator     ft::vector<T>::insert(ft::vector<T>::iterator position,
+                            const T& val)
+{
+    
+}
+
+template<typename T>
+void                        ft::vector<T>::insert(ft::vector<T>::iterator position,
+                            size_t n, const T& val)
+{
+    
+}
+
+template<typename T>
+template <class InputIterator>
+void                        ft::vector<T>::insert(ft::vector<T>::iterator position,
+                            InputIterator first, InputIterator last)
+{
+
 }

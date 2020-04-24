@@ -66,3 +66,16 @@ bool                            ft::vector<T>::empty()
     return false;
 }
 
+template<typename T>
+void                            ft::vector<T>::reserve(size_t n)
+{
+    if (n > _capacity)
+    {
+        T    *newArg = new T[n];
+        for (int i = 0; i < _size; ++i)
+            newArg[i] = _arg[i];
+        delete [] _arg;
+        _arg = newArg;
+        _capacity = n;
+    }
+}

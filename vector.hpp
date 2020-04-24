@@ -26,18 +26,19 @@ namespace ft
             vector<T>   *_arg;
             int         _idx;
 
-            iterator() {}
 
             public:
+            iterator();
             iterator(vector<T> *arg, int idx);
             ~iterator();
 
             iterator        operator+(int nb);
+            iterator        operator-(int nb);
             void            operator++();
             void            operator++(int);
             void            operator--();
             void            operator--(int);
-            T               &operator*();
+            T               operator*();
             bool            operator!=(const iterator &rhs);
             void            operator=(vector<T> *rhs);
 
@@ -50,18 +51,20 @@ namespace ft
             vector<T>   *_arg;
             int         _idx;
 
-            reverse_iterator() {}
 
             public:
+            reverse_iterator();
             reverse_iterator(vector<T> *arg, int idx);
             ~reverse_iterator();
 
-            void            operator++();
-            void            operator++(int);
-            void            operator--();
-            void            operator--(int);
-            T               &operator*();
-            bool            operator!=(const reverse_iterator &rhs);
+            reverse_iterator        operator+(int nb);
+            reverse_iterator        operator-(int nb);
+            void                    operator++();
+            void                    operator++(int);
+            void                    operator--();
+            void                    operator--(int);
+            T                       &operator*();
+            bool                    operator!=(const reverse_iterator &rhs);
         
             size_t          getIdx();
         };
@@ -72,6 +75,7 @@ namespace ft
         reverse_iterator    rend();
         
         // INITIALISATIONS
+
         vector();
         vector(int capacity);
         vector(int capacity, T arg);
@@ -91,6 +95,7 @@ namespace ft
         void                resize(int resize);
         void                resize(int resize, T val);
         bool                empty();
+        void                reserve(size_t n);
 
         // ELEMENT ACCESS
 
@@ -105,10 +110,21 @@ namespace ft
         void                clear();
         iterator            erase(iterator pos);
         iterator            erase(iterator first, iterator last);
+        template<class InputIterator>
+        void                assign(InputIterator first, InputIterator last);
+        void                assign(size_t n, const T &val);
+        void                assign(int n, int val);
+        iterator            insert(iterator position, const T& val);
+        void                insert(iterator position, size_t n, const T& val);
+        template <class InputIterator>
+        void                insert(iterator position,
+                            InputIterator first, InputIterator last);
 
+ 
     };
 
     # include "vectorIterators.hpp"
+    # include "vectorReverseIterators.hpp"
     # include "vectorInit.hpp"
     # include "vectorOperators.hpp"
     # include "vectorCapacity.hpp"
