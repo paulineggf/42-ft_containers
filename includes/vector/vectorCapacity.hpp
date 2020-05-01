@@ -1,32 +1,30 @@
 #include "vector.hpp"
 
-
-    
-template<typename T>
-int                             ft::vector<T>::capacity()
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::size_type        ft::vector<T, Alloc>::capacity()
 {
     return _capacity;
 }
 
-template<typename T>
-size_t                             ft::vector<T>::size() const
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::size_type        ft::vector<T, Alloc>::size() const
 {
     return _size;
 }
 
-template<typename T>
-long int                        ft::vector<T>::max_size()
+template<typename T, class Alloc>
+long int                        ft::vector<T, Alloc>::max_size()
 {
     return std::numeric_limits<std::size_t>::max() / sizeof(T);
 }
 
-template<typename T>
-void                            ft::vector<T>::resize(int resize)
+template<typename T, class Alloc>
+void                            ft::vector<T, Alloc>::resize(size_type resize)
 {
     if (_size > resize)
     {
         T    *newArg = new T[resize];
-        for (int i = 0; i < resize; ++i)
+        for (size_type i = 0; i < resize; ++i)
             newArg[i] = _arg[i];
         delete [] _arg;
         _arg = newArg;
@@ -34,18 +32,18 @@ void                            ft::vector<T>::resize(int resize)
     }
     else if (_size < resize)
     {
-        for (int i = _size; i < resize; ++i)
+        for (size_type i = _size; i < resize; ++i)
             this->push_back(0);
     }
 }
 
-template<typename T>
-void                            ft::vector<T>::resize(int resize, T val)
+template<typename T, class Alloc>
+void                            ft::vector<T, Alloc>::resize(size_type resize, T val)
 {
     if (_size > resize)
     {
         T    *newArg = new T[resize];
-        for (int i = 0; i < resize; ++i)
+        for (size_type i = 0; i < resize; ++i)
             newArg[i] = _arg[i];
         delete [] _arg;
         _arg = newArg;
@@ -53,26 +51,26 @@ void                            ft::vector<T>::resize(int resize, T val)
     }
     else if (_size < resize)
     {
-        for (int i = _size; i < resize; ++i)
+        for (size_type i = _size; i < resize; ++i)
             this->push_back(val);
     }
 }
 
-template<typename T>
-bool                            ft::vector<T>::empty()
+template<typename T, class Alloc>
+bool                            ft::vector<T, Alloc>::empty()
 {
     if (_size == 0)
         return true;
     return false;
 }
 
-template<typename T>
-void                            ft::vector<T>::reserve(size_t n)
+template<typename T, class Alloc>
+void                            ft::vector<T, Alloc>::reserve(size_type n)
 {
-    if ((int)n > _capacity)
+    if (n > _capacity)
     {
         T    *newArg = new T[n];
-        for (int i = 0; i < _size; ++i)
+        for (size_type i = 0; i < _size; ++i)
             newArg[i] = _arg[i];
         delete [] _arg;
         _arg = newArg;

@@ -1,0 +1,96 @@
+==28112== Memcheck, a memory error detector
+==28112== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==28112== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==28112== Command: ./mytest
+==28112== 
+==28112== Mismatched free() / delete / delete []
+==28112==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28112==    by 0x40263F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==28112==    by 0x402A93: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
+==28112==    by 0x40287C: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:88)
+==28112==    by 0x401D48: ft::vector<int, std::allocator<int> >::vector<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator, std::allocator<int> const&) (vectorInit.hpp:33)
+==28112==    by 0x4011BB: main (constructor.cpp:62)
+==28112==  Address 0x5b7dcd0 is 0 bytes inside a block of size 4 alloc'd
+==28112==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28112==    by 0x402729: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==28112==    by 0x4028D6: ft::vector<int, std::allocator<int> >::assign(unsigned long, int const&) (vectorModifiers.hpp:97)
+==28112==    by 0x402843: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:84)
+==28112==    by 0x401D48: ft::vector<int, std::allocator<int> >::vector<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator, std::allocator<int> const&) (vectorInit.hpp:33)
+==28112==    by 0x4011BB: main (constructor.cpp:62)
+==28112== 
+==28112== Mismatched free() / delete / delete []
+==28112==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28112==    by 0x40263F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==28112==    by 0x402A93: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
+==28112==    by 0x402C17: void ft::vector<int, std::allocator<int> >::assign<int*>(int*, int*) (vectorModifiers.hpp:88)
+==28112==    by 0x401F17: ft::vector<int, std::allocator<int> >::vector<int*>(int*, int*, std::allocator<int> const&) (vectorInit.hpp:33)
+==28112==    by 0x401259: main (constructor.cpp:67)
+==28112==  Address 0x5b7deb0 is 0 bytes inside a block of size 4 alloc'd
+==28112==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28112==    by 0x402729: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==28112==    by 0x4028D6: ft::vector<int, std::allocator<int> >::assign(unsigned long, int const&) (vectorModifiers.hpp:97)
+==28112==    by 0x402BEE: void ft::vector<int, std::allocator<int> >::assign<int*>(int*, int*) (vectorModifiers.hpp:84)
+==28112==    by 0x401F17: ft::vector<int, std::allocator<int> >::vector<int*>(int*, int*, std::allocator<int> const&) (vectorInit.hpp:33)
+==28112==    by 0x401259: main (constructor.cpp:67)
+==28112== 
+==28112== Conditional jump or move depends on uninitialised value(s)
+==28112==    at 0x4F60A55: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60E18: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4021AC: ft::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (vectorInit.hpp:20)
+==28112==    by 0x401750: main (constructor.cpp:83)
+==28112== 
+==28112== Conditional jump or move depends on uninitialised value(s)
+==28112==    at 0x4F60A62: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60E18: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4021AC: ft::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (vectorInit.hpp:20)
+==28112==    by 0x401750: main (constructor.cpp:83)
+==28112== 
+==28112== Conditional jump or move depends on uninitialised value(s)
+==28112==    at 0x4F6073B: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60AC6: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60E18: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4021AC: ft::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (vectorInit.hpp:20)
+==28112==    by 0x401750: main (constructor.cpp:83)
+==28112== 
+==28112== Conditional jump or move depends on uninitialised value(s)
+==28112==    at 0x4F60743: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60AC6: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60E18: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4021AC: ft::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (vectorInit.hpp:20)
+==28112==    by 0x401750: main (constructor.cpp:83)
+==28112== 
+==28112== Conditional jump or move depends on uninitialised value(s)
+==28112==    at 0x4F60AD0: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60E18: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4021AC: ft::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (vectorInit.hpp:20)
+==28112==    by 0x401750: main (constructor.cpp:83)
+==28112== 
+==28112== Conditional jump or move depends on uninitialised value(s)
+==28112==    at 0x4C311F1: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28112==    by 0x4F60AD6: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4F60E18: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==28112==    by 0x4021AC: ft::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(unsigned long, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (vectorInit.hpp:20)
+==28112==    by 0x401750: main (constructor.cpp:83)
+==28112== 
+==28112== Mismatched free() / delete / delete []
+==28112==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28112==    by 0x40263F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==28112==    by 0x40258B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:51)
+==28112==    by 0x401A2A: main (constructor.cpp:88)
+==28112==  Address 0x5b7dc80 is 0 bytes inside a block of size 16 alloc'd
+==28112==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28112==    by 0x402729: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==28112==    by 0x402687: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:107)
+==28112==    by 0x401BF3: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:33)
+==28112==    by 0x40114C: main (constructor.cpp:61)
+==28112== 
+==28112== 
+==28112== HEAP SUMMARY:
+==28112==     in use at exit: 0 bytes in 0 blocks
+==28112==   total heap usage: 17 allocs, 17 frees, 81,148 bytes allocated
+==28112== 
+==28112== All heap blocks were freed -- no leaks are possible
+==28112== 
+==28112== For counts of detected and suppressed errors, rerun with: -v
+==28112== Use --track-origins=yes to see where uninitialised values come from
+==28112== ERROR SUMMARY: 27 errors from 9 contexts (suppressed: 0 from 0)

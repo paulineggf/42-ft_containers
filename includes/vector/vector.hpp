@@ -4,17 +4,33 @@
 # include <limits>
 # include <iostream>
 # include <exception>
+# include <algorithm>
 
 namespace ft
 {
-    template <typename T>
+    template <typename T, class Alloc = std::allocator<T> >
     class   vector
     {
+        public:
+
+        // TYPEDEF
+        
+        typedef T                           value_type;
+        typedef T*                          pointer;
+        typedef std::size_t                 size_type;
+        typedef value_type&                 reference;
+        typedef const value_type&           const_reference;
+        typedef Alloc                       allocator_type;
+        typedef std::ptrdiff_t              difference_type;
+
         private:
 
-        T   *_arg;
-        int _capacity;
-        int _size;
+        // ARGUMENTS
+
+        allocator_type          _alloc;
+        pointer                 _arg;
+        size_type               _capacity;
+        size_type               _size;
 
         public:
 
@@ -24,12 +40,11 @@ namespace ft
         {
             private:
             vector<T>   *_arg;
-            int         _idx;
-
+            size_type   _idx;
 
             public:
             iterator();
-            iterator(vector<T> *arg, int idx);
+            iterator(vector<T, Alloc> *arg, int idx);
             ~iterator();
 
             iterator        operator+(int nb);
@@ -39,10 +54,16 @@ namespace ft
             void            operator--();
             void            operator--(int);
             T               &operator*();
-            bool            operator!=(const iterator &rhs);
-            void            operator=(vector<T> *rhs);
+            bool            operator!=(const iterator &rhs); // à revoir
+            void            operator=(vector<T, Alloc> *rhs);
+            bool            operator<(const iterator &rhs);
+            bool            operator>(const iterator &rhs);
+            bool            operator<=(const iterator &rhs);
+            bool            operator>=(const iterator &rhs);
+            // bool            operator==(const iterator &rhs);
 
-            size_t          getIdx();
+
+            size_type       getIdx();
         };
 
         class       reverse_iterator
@@ -54,7 +75,7 @@ namespace ft
 
             public:
             reverse_iterator();
-            reverse_iterator(vector<T> *arg, int idx);
+            reverse_iterator(vector<T, Alloc> *arg, int idx);
             ~reverse_iterator();
 
             reverse_iterator        operator+(int nb);
@@ -64,54 +85,124 @@ namespace ft
             void                    operator--();
             void                    operator--(int);
             T                       &operator*();
-            bool                    operator!=(const reverse_iterator &rhs);
+            bool                    operator!=(const reverse_iterator &rhs); // à revoir
+            void                    operator=(vector<T, Alloc> *rhs);
+            bool                    operator<(const reverse_iterator &rhs);
+            bool                    operator>(const reverse_iterator &rhs);
+            bool                    operator<=(const reverse_iterator &rhs);
+            bool                    operator>=(const reverse_iterator &rhs);
+            // bool                    operator==(const reverse_iterator &rhs);
         
-            size_t          getIdx();
+            size_type               getIdx();
         };
 
-        iterator            begin();
-        iterator            end();
-        reverse_iterator    rbegin();
-        reverse_iterator    rend();
+        class       const_iterator
+        {
+            private:
+            vector<T>   *_arg;
+            size_type   _idx;
+
+            public:
+            const_iterator();
+            const_iterator(const vector<T, Alloc> *arg, int idx);
+            ~const_iterator();
+
+            const_iterator        operator+(int nb);
+            const_iterator        operator-(int nb);
+            void                  operator++();
+            void                  operator++(int);
+            void                  operator--();
+            void                  operator--(int);
+            T                     &operator*();
+            bool                  operator!=(const const_iterator &rhs); // à revoir
+            void                  operator=(vector<T, Alloc> *rhs);
+            bool                  operator<(const const_iterator &rhs);
+            bool                  operator>(const const_iterator &rhs);
+            bool                  operator<=(const const_iterator &rhs);
+            bool                  operator>=(const const_iterator &rhs);
+            // bool            operator==(const const_iterator &rhs);
+
+
+            size_type       getIdx();
+        };
+
+        class       const_reverse_iterator
+        {
+            private:
+            vector<T>   *_arg;
+            int         _idx;
+
+
+            public:
+            const_reverse_iterator();
+            const_reverse_iterator(vector<T, Alloc> *arg, int idx);
+            ~const_reverse_iterator();
+
+            const_reverse_iterator          operator+(int nb);
+            const_reverse_iterator          operator-(int nb);
+            void                            operator++();
+            void                            operator++(int);
+            void                            operator--();
+            void                            operator--(int);
+            T                               &operator*();
+            bool                            operator!=(const const_reverse_iterator &rhs); // à revoir
+            void                            operator=(vector<T, Alloc> *rhs);
+            bool                            operator<(const const_reverse_iterator &rhs);
+            bool                            operator>(const const_reverse_iterator &rhs);
+            bool                            operator<=(const const_reverse_iterator &rhs);
+            bool                            operator>=(const const_reverse_iterator &rhs);
+            // bool                    operator==(const const_reverse_iterator &rhs);
+        
+            size_type               getIdx();
+        };
+
+        iterator                  begin();
+        const_iterator            begin() const;
+        iterator                  end();
+        const_iterator            end() const;
+        reverse_iterator          rbegin();
+        // reverse_iterator          rbegin() const;
+        reverse_iterator          rend();
+        // reverse_iterator          rend() const;
         
         // INITIALISATIONS
 
-        vector();
-        vector(int capacity);
-        vector(int capacity, T arg);
+        explicit vector(const allocator_type& alloc = allocator_type());
+        explicit vector(size_type n, const value_type &val = value_type(), const allocator_type& alloc = allocator_type());        
         template<typename InputIterator>
-        vector(InputIterator first, InputIterator last);
-        vector(const vector &copy);
+        vector(InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
+        vector(const vector<T, Alloc> &copy);            
         ~vector();
-        
+
         // OPERATORS OVERLOAD
 
         vector              &operator=(const vector &rhs);
         T                   &operator[](int idx);
 
-        // CAPACITY
+        // // CAPACITY
 
-        int                 capacity();
-        size_t              size() const;
+        size_type           capacity();
+        size_type           size() const;
         long int            max_size();
-        void                resize(int resize);
-        void                resize(int resize, T val);
+        void                resize(size_type resize);
+        void                resize(size_type resize, T val);
         bool                empty();
         void                reserve(size_t n);
 
-        // ELEMENT ACCESS
+        // // ELEMENT ACCESS
 
         T                   &back();
         T                   &front();
-        T                   &at(int i);
+        reference           at(size_type n);
+        const_reference     at(size_type n) const;
         
-        // MODIFIERS
+        // // MODIFIERS
 
         template<class InputIterator>
         void                assign(InputIterator first, InputIterator last);
-        void                assign(size_t n, const T &val);
+        void                assign(size_type n, const T &val);
         void                assign(int n, int val);
-        void                push_back(T arg);
+        void                push_back(value_type arg);
         void                pop_back();
         iterator            insert(iterator position, const T& val);
         void                insert(iterator position, size_t n, const T& val);
@@ -121,17 +212,20 @@ namespace ft
                             InputIterator first, InputIterator last);
         iterator            erase(iterator pos);
         iterator            erase(iterator first, iterator last);
-        void                swap(vector<T> &x);
+        void                swap(vector<T, Alloc> &x);
         void                clear();
-    };
 
-    # include "vectorIterators.hpp"
-    # include "vectorReverseIterators.hpp"
-    # include "vectorInit.hpp"
-    # include "vectorOperators.hpp"
-    # include "vectorCapacity.hpp"
-    # include "vectorAccess.hpp"
-    # include "vectorModifiers.hpp"
+
+    };
+        # include "vectorIterators.hpp"
+        # include "vectorReverseIterators.hpp"
+        # include "vectorInit.hpp"
+        # include "vectorOperators.hpp"
+        # include "vectorCapacity.hpp"
+        # include "vectorAccess.hpp"
+        # include "vectorModifiers.hpp"
+        # include "vectorRelationOperators.hpp"
 }
+
 
 #endif

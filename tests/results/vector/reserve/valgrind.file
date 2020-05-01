@@ -1,0 +1,24 @@
+==25768== Memcheck, a memory error detector
+==25768== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25768== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25768== Command: ./mytest
+==25768== 
+==25768== Mismatched free() / delete / delete []
+==25768==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25768==    by 0x4015AF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25768==    by 0x4014EB: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:51)
+==25768==    by 0x401075: main (reserve.cpp:32)
+==25768==  Address 0x5b802d0 is 0 bytes inside a block of size 400 alloc'd
+==25768==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25768==    by 0x4013D9: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==25768==    by 0x400F2A: main (reserve.cpp:22)
+==25768== 
+==25768== 
+==25768== HEAP SUMMARY:
+==25768==     in use at exit: 0 bytes in 0 blocks
+==25768==   total heap usage: 11 allocs, 11 frees, 82,316 bytes allocated
+==25768== 
+==25768== All heap blocks were freed -- no leaks are possible
+==25768== 
+==25768== For counts of detected and suppressed errors, rerun with: -v
+==25768== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

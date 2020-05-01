@@ -1,50 +1,47 @@
 #include "vector.hpp"
 
 
-template<typename T>
-void                            ft::vector<T>::push_back(T arg)
+template<typename T, class Alloc>
+void            ft::vector<T, Alloc>::push_back(typename ft::vector<T, Alloc>::value_type arg)
 {
     if (_size < _capacity)
-    {
         _arg[_size] = arg;
-        _size++;
-    }
     else
     {
         T *newArg;
         if (_capacity == 0)
-            newArg = new T[1];
+            newArg = _alloc.allocate(1);
         else
-            newArg = new T[_capacity * 2];
-        if (newArg == 0)
-            throw std::exception();
-        for (int i = 0; i < _size; i++)
-            newArg[i] = _arg[i];
-        newArg[_size] = arg;
-        delete [] _arg;
+            newArg = _alloc.allocate(_capacity * 2);
+        
+        for (size_type i = 0; i < _size; i++)
+            _alloc.construct(newArg + i, _arg[i]);
+        _alloc.construct(newArg + _size, arg);
+        if (_size > 0)
+            _alloc.deallocate(_arg, _capacity);
         _arg = newArg;
         if (_capacity == 0)
             _capacity += 1;
         else
             _capacity *= 2;
-        _size++;
     }
+    _size++;
 }
 
-template<typename T>
-void                        ft::vector<T>::pop_back()
+template<typename T, class Alloc>
+void                        ft::vector<T, Alloc>::pop_back()
 {
     _size -= 1;
 }
 
-template<typename T>
-void                        ft::vector<T>::clear()
+template<typename T, class Alloc>
+void                        ft::vector<T, Alloc>::clear()
 {
     _size = 0;
 }
 
-template<typename T>
-typename ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterator pos)
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::iterator     ft::vector<T, Alloc>::erase(typename ft::vector<T, Alloc>::iterator pos)
 {
     int i;
 
@@ -60,11 +57,11 @@ typename ft::vector<T>::iterator     ft::vector<T>::erase(ft::vector<T>::iterato
     return pos;
 }
 
-template<typename T>
-typename ft::vector<T>::iterator    ft::vector<T>::erase(ft::vector<T>::iterator first,
-                                    ft::vector<T>::iterator last)
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::iterator    ft::vector<T, Alloc>::erase(ft::vector<T, Alloc>::iterator first,
+                                    ft::vector<T, Alloc>::iterator last)
 {
-    int     end;
+    size_type     end;
 
     end = _size;
     _size -= last.getIdx() - first.getIdx();
@@ -78,11 +75,13 @@ typename ft::vector<T>::iterator    ft::vector<T>::erase(ft::vector<T>::iterator
     return first;
 }
 
-template<typename T>
+template<typename T, class Alloc>
 template<class InputIterator>
-void        ft::vector<T>::assign(InputIterator first, InputIterator last)
+void        ft::vector<T, Alloc>::assign(InputIterator first, InputIterator last)
 {
-    this->assign(1, *first),
+    size_type sz = 1;
+
+    this->assign(sz, *first);
     first++;
     while (first != last)
     {
@@ -91,32 +90,32 @@ void        ft::vector<T>::assign(InputIterator first, InputIterator last)
     }
 }
 
-template<typename T>
-void        ft::vector<T>::assign(size_t n, const T &val)
+template<typename T, class Alloc>
+void        ft::vector<T, Alloc>::assign(typename ft::vector<T, Alloc>::size_type n, const T &val)
 {
     if (n > _capacity)
+        this->reserve(n);
+    for (size_type i = 0; i < n; i++)
+        _arg[i] = val;
+    _size = n;
+}
+
+template<typename T, class Alloc>
+void        ft::vector<T, Alloc>::assign(int n, int val)
+{
+    if (n > (int)_capacity)
         this->reserve(n);
     for (int i = 0; i < n; i++)
         _arg[i] = val;
     _size = n;
 }
 
-template<typename T>
-void        ft::vector<T>::assign(int n, int val)
-{
-    if (n > _capacity)
-        this->reserve(n);
-    for (int i = 0; i < n; i++)
-        _arg[i] = val;
-    _size = n;
-}
-
-template<typename T>
-typename ft::vector<T>::iterator    ft::vector<T>::insert(ft::vector<T>::iterator position,
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::iterator    ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position,
                                     const T &val)
 {
-    int     i;
-    int     tmp;
+    size_type     i;
+    int           tmp;
     
     i = _size;
     tmp = _size - 1;
@@ -129,8 +128,8 @@ typename ft::vector<T>::iterator    ft::vector<T>::insert(ft::vector<T>::iterato
     return position;
 }
 
-template<typename T>
-void        ft::vector<T>::insert(ft::vector<T>::iterator position,
+template<typename T, class Alloc>
+void        ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position,
             size_t n, const T& val)
 {
     int     i;
@@ -150,8 +149,8 @@ void        ft::vector<T>::insert(ft::vector<T>::iterator position,
     }
 }
 
-template<typename T>
-void        ft::vector<T>::insert(ft::vector<T>::iterator position,
+template<typename T, class Alloc>
+void        ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position,
             int n, int val)
 {
     int     i;
@@ -171,13 +170,13 @@ void        ft::vector<T>::insert(ft::vector<T>::iterator position,
     }
 }
 
-template<typename T>
+template<typename T, class Alloc>
 template <class InputIterator>
-void        ft::vector<T>::insert(ft::vector<T>::iterator position,
+void        ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position,
             InputIterator first, InputIterator last)
 {
-    ft::vector<T>   myvector;
-    int             i;
+    ft::vector<T, Alloc>   myvector;
+    size_type       i;
 
     myvector.assign(position, position + _size);
     this->erase(position, position + _size);
@@ -191,10 +190,10 @@ void        ft::vector<T>::insert(ft::vector<T>::iterator position,
         this->push_back(myvector[i++]);
 }
 
-template<typename T>
-void        ft::vector<T>::swap(ft::vector<T> &x)
+template<typename T, class Alloc>
+void        ft::vector<T, Alloc>::swap(ft::vector<T, Alloc> &x)
 {
-    ft::vector<T> tmp;
+    ft::vector<T, Alloc> tmp;
 
     tmp.assign(this->begin(), this->end());
     this->assign(x.begin(), x.end());

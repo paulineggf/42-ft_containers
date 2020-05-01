@@ -1,0 +1,41 @@
+==26000== Memcheck, a memory error detector
+==26000== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==26000== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==26000== Command: ./mytest
+==26000== 
+==26000== Mismatched free() / delete / delete []
+==26000==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==26000==    by 0x40194F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==26000==    by 0x401C53: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
+==26000==    by 0x401A3C: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:88)
+==26000==    by 0x401306: ft::vector<int, std::allocator<int> >::swap(ft::vector<int, std::allocator<int> >&) (vectorModifiers.hpp:198)
+==26000==    by 0x400DD1: main (swap_overload.cpp:10)
+==26000==  Address 0x5b7dd30 is 0 bytes inside a block of size 4 alloc'd
+==26000==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==26000==    by 0x401899: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==26000==    by 0x401A96: ft::vector<int, std::allocator<int> >::assign(unsigned long, int const&) (vectorModifiers.hpp:97)
+==26000==    by 0x401A03: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:84)
+==26000==    by 0x401306: ft::vector<int, std::allocator<int> >::swap(ft::vector<int, std::allocator<int> >&) (vectorModifiers.hpp:198)
+==26000==    by 0x400DD1: main (swap_overload.cpp:10)
+==26000== 
+==26000== Mismatched free() / delete / delete []
+==26000==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==26000==    by 0x40194F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==26000==    by 0x40173B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:51)
+==26000==    by 0x4010FE: main (swap_overload.cpp:23)
+==26000==  Address 0x5b7dcd0 is 0 bytes inside a block of size 20 alloc'd
+==26000==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==26000==    by 0x401899: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==26000==    by 0x4017E7: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:107)
+==26000==    by 0x401233: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:33)
+==26000==    by 0x400DB6: main (swap_overload.cpp:8)
+==26000== 
+==26000== 
+==26000== HEAP SUMMARY:
+==26000==     in use at exit: 0 bytes in 0 blocks
+==26000==   total heap usage: 8 allocs, 8 frees, 80,980 bytes allocated
+==26000== 
+==26000== All heap blocks were freed -- no leaks are possible
+==26000== 
+==26000== For counts of detected and suppressed errors, rerun with: -v
+==26000== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)

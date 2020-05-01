@@ -1,0 +1,51 @@
+==25851== Memcheck, a memory error detector
+==25851== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25851== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25851== Command: ./mytest
+==25851== 
+==25851== Mismatched free() / delete / delete []
+==25851==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25851==    by 0x4017EF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25851==    by 0x401B93: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
+==25851==    by 0x40152C: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:88)
+==25851==    by 0x400EC9: main (assign.cpp:16)
+==25851==  Address 0x5b7dce0 is 0 bytes inside a block of size 4 alloc'd
+==25851==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25851==    by 0x401859: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==25851==    by 0x401946: ft::vector<int, std::allocator<int> >::assign(unsigned long, int const&) (vectorModifiers.hpp:97)
+==25851==    by 0x4014F3: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:84)
+==25851==    by 0x400EC9: main (assign.cpp:16)
+==25851== 
+==25851== Mismatched free() / delete / delete []
+==25851==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25851==    by 0x4017EF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25851==    by 0x401B93: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
+==25851==    by 0x401677: void ft::vector<int, std::allocator<int> >::assign<int*>(int*, int*) (vectorModifiers.hpp:88)
+==25851==    by 0x400F35: main (assign.cpp:19)
+==25851==  Address 0x5b7de30 is 0 bytes inside a block of size 4 alloc'd
+==25851==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25851==    by 0x401859: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==25851==    by 0x401946: ft::vector<int, std::allocator<int> >::assign(unsigned long, int const&) (vectorModifiers.hpp:97)
+==25851==    by 0x40164E: void ft::vector<int, std::allocator<int> >::assign<int*>(int*, int*) (vectorModifiers.hpp:84)
+==25851==    by 0x400F35: main (assign.cpp:19)
+==25851== 
+==25851== Mismatched free() / delete / delete []
+==25851==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25851==    by 0x4017EF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25851==    by 0x40173B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:51)
+==25851==    by 0x4011FD: main (assign.cpp:25)
+==25851==  Address 0x5b7dc80 is 0 bytes inside a block of size 28 alloc'd
+==25851==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25851==    by 0x401859: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==25851==    by 0x401387: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:107)
+==25851==    by 0x400DFA: main (assign.cpp:11)
+==25851== 
+==25851== 
+==25851== HEAP SUMMARY:
+==25851==     in use at exit: 0 bytes in 0 blocks
+==25851==   total heap usage: 10 allocs, 10 frees, 81,012 bytes allocated
+==25851== 
+==25851== All heap blocks were freed -- no leaks are possible
+==25851== 
+==25851== For counts of detected and suppressed errors, rerun with: -v
+==25851== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)

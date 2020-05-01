@@ -1,36 +1,31 @@
 #include "vector.hpp"
 
-template<typename T>
-ft::vector<T>::vector() :
+template <typename T, class Alloc>
+ft::vector<T, Alloc>::vector(const ft::vector<T, Alloc>::allocator_type& alloc) :
+_alloc(alloc),
 _arg(0),
 _capacity(0),
-_size(0)
-{}
+_size(0) {
+}
 
-template<typename T>
-ft::vector<T>::vector(int capacity) :
-_arg(new T[capacity]),
-_capacity(capacity),
-_size(capacity)
+template<typename T, class Alloc>
+ft::vector<T, Alloc>::vector(size_type n, const value_type &val, const allocator_type& alloc ) :
+_alloc(alloc),
+_arg(0),
+_capacity(n),
+_size(n)
 {
-    for (int i = 0; i < _capacity; i++)
-        _arg[i] = 0;
-}
-    
-template<typename T>
-ft::vector<T>::vector(int capacity, T arg) :
-_arg(new T[capacity]),
-_capacity(capacity),
-_size(capacity)
-{ 
-    for (int i = 0; i < _capacity; i++)
-        _arg[i] = arg;
+    _arg = _alloc.allocate(_size);
+    for (size_type i = 0; i < _size; i++)
+        _arg[i] = val;
 }
 
-template<typename T>
+template<typename T, class Alloc>
 template<typename InputIterator>
-ft::vector<T>::vector(InputIterator first,
-                      InputIterator last) :
+ft::vector<T, Alloc>::vector(InputIterator first,
+                      InputIterator last,
+                      const allocator_type& alloc) :
+_alloc(alloc),
 _arg(0),
 _capacity(0),
 _size(0)
@@ -38,16 +33,20 @@ _size(0)
     this->assign(first, last);
 }
 
-template<typename T>
-ft::vector<T>::vector(const ft::vector<T> &copy)
+template<typename T, class Alloc>
+ft::vector<T, Alloc>::vector(const ft::vector<T, Alloc> &copy)
 {
-    this->_arg = copy._arg;
-    this->_size = copy._size;
-    this->_capacity = copy._capacity;
+    this->_size = 0;
+    this->_capacity = 0;
+    this->_alloc = _alloc;
+    for (size_type i = 0; i < copy._size; i++)
+        this->push_back(copy.at(i));
 }
     
-template<typename T>
-ft::vector<T>::~vector()
+template<typename T, class Alloc>
+ft::vector<T, Alloc>::~vector()
 {
-    delete [] _arg;
+    for (size_type i = 0; i < _size; i++)
+        _alloc.destroy(_arg + i);
+    _alloc.deallocate(_arg, _capacity);
 }

@@ -1,0 +1,41 @@
+==25944== Memcheck, a memory error detector
+==25944== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25944== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25944== Command: ./mytest
+==25944== 
+==25944== Mismatched free() / delete / delete []
+==25944==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25944==    by 0x40170F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25944==    by 0x401B63: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
+==25944==    by 0x4017FC: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:88)
+==25944==    by 0x4011E6: ft::vector<int, std::allocator<int> >::swap(ft::vector<int, std::allocator<int> >&) (vectorModifiers.hpp:198)
+==25944==    by 0x400DC5: main (swap.cpp:10)
+==25944==  Address 0x5b7dd30 is 0 bytes inside a block of size 4 alloc'd
+==25944==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25944==    by 0x401659: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==25944==    by 0x401916: ft::vector<int, std::allocator<int> >::assign(unsigned long, int const&) (vectorModifiers.hpp:97)
+==25944==    by 0x4017C3: void ft::vector<int, std::allocator<int> >::assign<ft::vector<int, std::allocator<int> >::iterator>(ft::vector<int, std::allocator<int> >::iterator, ft::vector<int, std::allocator<int> >::iterator) (vectorModifiers.hpp:84)
+==25944==    by 0x4011E6: ft::vector<int, std::allocator<int> >::swap(ft::vector<int, std::allocator<int> >&) (vectorModifiers.hpp:198)
+==25944==    by 0x400DC5: main (swap.cpp:10)
+==25944== 
+==25944== Mismatched free() / delete / delete []
+==25944==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25944==    by 0x40170F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25944==    by 0x4014EB: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:51)
+==25944==    by 0x400FE7: main (swap.cpp:23)
+==25944==  Address 0x5b7dcd0 is 0 bytes inside a block of size 20 alloc'd
+==25944==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25944==    by 0x401659: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
+==25944==    by 0x4015A7: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:107)
+==25944==    by 0x401113: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:33)
+==25944==    by 0x400DAA: main (swap.cpp:8)
+==25944== 
+==25944== 
+==25944== HEAP SUMMARY:
+==25944==     in use at exit: 0 bytes in 0 blocks
+==25944==   total heap usage: 8 allocs, 8 frees, 80,980 bytes allocated
+==25944== 
+==25944== All heap blocks were freed -- no leaks are possible
+==25944== 
+==25944== For counts of detected and suppressed errors, rerun with: -v
+==25944== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
