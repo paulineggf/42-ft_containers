@@ -120,14 +120,14 @@ typename ft::vector<T, Alloc>::size_type      ft::vector<T, Alloc>::const_revers
 }
 
 template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::const_reverse_iterator    ft::vector<T, Alloc>::crbegin() const noexcept
+typename ft::vector<T, Alloc>::const_reverse_iterator    ft::vector<T, Alloc>::rbegin() const
 {
     ft::vector<T, Alloc>::const_reverse_iterator it(this, this->size() - 1);
     return it;
 }
 
 template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::const_reverse_iterator    ft::vector<T, Alloc>::crend() const noexcept
+typename ft::vector<T, Alloc>::const_reverse_iterator    ft::vector<T, Alloc>::rend() const
 {
     ft::vector<T, Alloc>::const_reverse_iterator it(this, -1);
     return it;

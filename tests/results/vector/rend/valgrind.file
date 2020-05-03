@@ -1,44 +1,14 @@
-==26542== Memcheck, a memory error detector
-==26542== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==26542== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==26542== Command: ./mytest
-==26542== 
-==26542== 
-==26542== Process terminating with default action of signal 2 (SIGINT)
-==26542==    at 0x400DBCB: elf_machine_rela (dl-machine.h:308)
-==26542==    by 0x400DBCB: elf_dynamic_do_Rela (do-rel.h:137)
-==26542==    by 0x400DBCB: _dl_relocate_object (dl-reloc.c:258)
-==26542==    by 0x4004306: dl_main (rtld.c:2190)
-==26542==    by 0x401ADCF: _dl_sysdep_start (dl-sysdep.c:253)
-==26542==    by 0x4002127: _dl_start_final (rtld.c:414)
-==26542==    by 0x4002127: _dl_start (rtld.c:521)
-==26542==    by 0x4001097: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
-==26542== Jump to the invalid address stated on the next line
-==26542==    at 0x556: ???
-==26542==    by 0x42289EF: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
-==26542==    by 0x4004306: dl_main (rtld.c:2190)
-==26542==    by 0x401ADCF: _dl_sysdep_start (dl-sysdep.c:253)
-==26542==    by 0x4002127: _dl_start_final (rtld.c:414)
-==26542==    by 0x4002127: _dl_start (rtld.c:521)
-==26542==    by 0x4001097: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
-==26542==  Address 0x556 is not stack'd, malloc'd or (recently) free'd
-==26542== 
-==26542== 
-==26542== Process terminating with default action of signal 11 (SIGSEGV)
-==26542==  Bad permissions for mapped region at address 0x556
-==26542==    at 0x556: ???
-==26542==    by 0x42289EF: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
-==26542==    by 0x4004306: dl_main (rtld.c:2190)
-==26542==    by 0x401ADCF: _dl_sysdep_start (dl-sysdep.c:253)
-==26542==    by 0x4002127: _dl_start_final (rtld.c:414)
-==26542==    by 0x4002127: _dl_start (rtld.c:521)
-==26542==    by 0x4001097: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
-==26542== 
-==26542== HEAP SUMMARY:
-==26542==     in use at exit: 0 bytes in 0 blocks
-==26542==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==26542== 
-==26542== All heap blocks were freed -- no leaks are possible
-==26542== 
-==26542== For counts of detected and suppressed errors, rerun with: -v
-==26542== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==25575== Memcheck, a memory error detector
+==25575== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25575== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25575== Command: ./mytest
+==25575== 
+==25575== 
+==25575== HEAP SUMMARY:
+==25575==     in use at exit: 0 bytes in 0 blocks
+==25575==   total heap usage: 3 allocs, 3 frees, 80,916 bytes allocated
+==25575== 
+==25575== All heap blocks were freed -- no leaks are possible
+==25575== 
+==25575== For counts of detected and suppressed errors, rerun with: -v
+==25575== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

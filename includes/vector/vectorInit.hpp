@@ -1,15 +1,15 @@
 #include "vector.hpp"
 
 template <typename T, class Alloc>
-ft::vector<T, Alloc>::vector(const ft::vector<T, Alloc>::allocator_type& alloc) :
+ft::vector<T, Alloc>::vector(const allocator_type& alloc) :
 _alloc(alloc),
 _arg(0),
 _capacity(0),
-_size(0) {
+_size(0) { 
 }
 
 template<typename T, class Alloc>
-ft::vector<T, Alloc>::vector(size_type n, const value_type &val, const allocator_type& alloc ) :
+ft::vector<T, Alloc>::vector(size_type n, const value_type &val, const allocator_type& alloc) :
 _alloc(alloc),
 _arg(0),
 _capacity(n),
@@ -22,8 +22,7 @@ _size(n)
 
 template<typename T, class Alloc>
 template<typename InputIterator>
-ft::vector<T, Alloc>::vector(InputIterator first,
-                      InputIterator last,
+ft::vector<T, Alloc>::vector(InputIterator first, InputIterator last,
                       const allocator_type& alloc) :
 _alloc(alloc),
 _arg(0),

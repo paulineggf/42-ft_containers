@@ -1,59 +1,14 @@
-==25715== Memcheck, a memory error detector
-==25715== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==25715== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==25715== Command: ./mytest
-==25715== 
-==25715== Mismatched free() / delete / delete []
-==25715==    at 0x4C3173B: operator delete[](void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25715==    by 0x401280: ft::vector<int, std::allocator<int> >::resize(unsigned long) (vectorCapacity.hpp:29)
-==25715==    by 0x400DEF: main (resize.cpp:12)
-==25715==  Address 0x5b7ddd0 is 0 bytes inside a block of size 64 alloc'd
-==25715==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25715==    by 0x401636: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==25715==    by 0x4010AE: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:15)
-==25715==    by 0x400D99: main (resize.cpp:10)
-==25715== 
-==25715== Invalid write of size 4
-==25715==    at 0x401054: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:8)
-==25715==    by 0x401414: ft::vector<int, std::allocator<int> >::resize(unsigned long, int) (vectorCapacity.hpp:55)
-==25715==    by 0x400E09: main (resize.cpp:13)
-==25715==  Address 0x5b7de64 is 0 bytes after a block of size 20 alloc'd
-==25715==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25715==    by 0x401219: ft::vector<int, std::allocator<int> >::resize(unsigned long) (vectorCapacity.hpp:26)
-==25715==    by 0x400DEF: main (resize.cpp:12)
-==25715== 
-==25715== Invalid write of size 4
-==25715==    at 0x401054: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:8)
-==25715==    by 0x4012D0: ft::vector<int, std::allocator<int> >::resize(unsigned long) (vectorCapacity.hpp:36)
-==25715==    by 0x400E1E: main (resize.cpp:14)
-==25715==  Address 0x5b7de70 is 12 bytes after a block of size 20 alloc'd
-==25715==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25715==    by 0x401219: ft::vector<int, std::allocator<int> >::resize(unsigned long) (vectorCapacity.hpp:26)
-==25715==    by 0x400DEF: main (resize.cpp:12)
-==25715== 
-==25715== Invalid read of size 4
-==25715==    at 0x400EA3: main (resize.cpp:18)
-==25715==  Address 0x5b7de64 is 0 bytes after a block of size 20 alloc'd
-==25715==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25715==    by 0x401219: ft::vector<int, std::allocator<int> >::resize(unsigned long) (vectorCapacity.hpp:26)
-==25715==    by 0x400DEF: main (resize.cpp:12)
-==25715== 
-==25715== Mismatched free() / delete / delete []
-==25715==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25715==    by 0x4015DF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
-==25715==    by 0x40151B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:51)
-==25715==    by 0x400EF6: main (resize.cpp:22)
-==25715==  Address 0x5b7de50 is 0 bytes inside a block of size 20 alloc'd
-==25715==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25715==    by 0x401219: ft::vector<int, std::allocator<int> >::resize(unsigned long) (vectorCapacity.hpp:26)
-==25715==    by 0x400DEF: main (resize.cpp:12)
-==25715== 
-==25715== 
-==25715== HEAP SUMMARY:
-==25715==     in use at exit: 0 bytes in 0 blocks
-==25715==   total heap usage: 8 allocs, 8 frees, 81,040 bytes allocated
-==25715== 
-==25715== All heap blocks were freed -- no leaks are possible
-==25715== 
-==25715== For counts of detected and suppressed errors, rerun with: -v
-==25715== ERROR SUMMARY: 16 errors from 5 contexts (suppressed: 0 from 0)
+==25621== Memcheck, a memory error detector
+==25621== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25621== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25621== Command: ./mytest
+==25621== 
+==25621== 
+==25621== HEAP SUMMARY:
+==25621==     in use at exit: 0 bytes in 0 blocks
+==25621==   total heap usage: 7 allocs, 7 frees, 81,020 bytes allocated
+==25621== 
+==25621== All heap blocks were freed -- no leaks are possible
+==25621== 
+==25621== For counts of detected and suppressed errors, rerun with: -v
+==25621== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -43,24 +43,25 @@ namespace ft
             size_type   _idx;
 
             public:
+
             iterator();
             iterator(vector<T, Alloc> *arg, int idx);
             ~iterator();
 
             iterator        operator+(int nb);
             iterator        operator-(int nb);
-            void            operator++();
-            void            operator++(int);
-            void            operator--();
-            void            operator--(int);
-            T               &operator*();
+            iterator        operator++();
+            iterator        operator++(int);
+            iterator        operator--();
+            iterator        operator--(int);
+            reference       operator*();
             bool            operator!=(const iterator &rhs); // à revoir
             void            operator=(vector<T, Alloc> *rhs);
             bool            operator<(const iterator &rhs);
             bool            operator>(const iterator &rhs);
             bool            operator<=(const iterator &rhs);
             bool            operator>=(const iterator &rhs);
-            // bool            operator==(const iterator &rhs);
+            bool            operator==(const iterator &rhs);
 
 
             size_type       getIdx();
@@ -99,12 +100,12 @@ namespace ft
         class       const_iterator
         {
             private:
-            vector<T>   *_arg;
-            size_type   _idx;
+            const vector<T>     *_arg;
+            size_type           _idx;
 
             public:
             const_iterator();
-            const_iterator(const vector<T, Alloc> *arg, int idx);
+            const_iterator(const vector<T, Alloc>  *arg, int idx);
             ~const_iterator();
 
             const_iterator        operator+(int nb);
@@ -113,15 +114,14 @@ namespace ft
             void                  operator++(int);
             void                  operator--();
             void                  operator--(int);
-            T                     &operator*();
+            value_type            operator*();
             bool                  operator!=(const const_iterator &rhs); // à revoir
             void                  operator=(vector<T, Alloc> *rhs);
             bool                  operator<(const const_iterator &rhs);
             bool                  operator>(const const_iterator &rhs);
             bool                  operator<=(const const_iterator &rhs);
             bool                  operator>=(const const_iterator &rhs);
-            // bool            operator==(const const_iterator &rhs);
-
+            // bool                  operator==(const const_iterator &rhs);
 
             size_type       getIdx();
         };
@@ -161,9 +161,9 @@ namespace ft
         iterator                  end();
         const_iterator            end() const;
         reverse_iterator          rbegin();
-        // reverse_iterator          rbegin() const;
+        const_reverse_iterator    rbegin() const;
         reverse_iterator          rend();
-        // reverse_iterator          rend() const;
+        const_reverse_iterator    rend() const;
         
         // INITIALISATIONS
 
@@ -177,22 +177,24 @@ namespace ft
         // OPERATORS OVERLOAD
 
         vector              &operator=(const vector &rhs);
-        T                   &operator[](int idx);
+        reference           operator[](size_type idx);
+        const_reference     operator[](size_type idx) const;
 
         // // CAPACITY
 
-        size_type           capacity();
+        size_type           capacity() const;
         size_type           size() const;
-        long int            max_size();
-        void                resize(size_type resize);
-        void                resize(size_type resize, T val);
-        bool                empty();
-        void                reserve(size_t n);
+        size_type           max_size();
+        void                resize(size_type n, value_type val = value_type());
+        bool                empty() const;
+        void                reserve(size_type n);
 
         // // ELEMENT ACCESS
 
-        T                   &back();
-        T                   &front();
+        reference           back();
+        const_reference     back() const;
+        reference           front();
+        const_reference     front() const;
         reference           at(size_type n);
         const_reference     at(size_type n) const;
         
@@ -202,10 +204,10 @@ namespace ft
         void                assign(InputIterator first, InputIterator last);
         void                assign(size_type n, const T &val);
         void                assign(int n, int val);
-        void                push_back(value_type arg);
+        void                push_back(const value_type &arg);
         void                pop_back();
-        iterator            insert(iterator position, const T& val);
-        void                insert(iterator position, size_t n, const T& val);
+        iterator            insert(iterator position, const value_type& val);
+        void                insert(iterator position, size_t n, const value_type& val);
         void                insert(iterator position, int n, int val);
         template <class InputIterator>
         void                insert(iterator position,
@@ -215,10 +217,12 @@ namespace ft
         void                swap(vector<T, Alloc> &x);
         void                clear();
 
-
+        void                swap(vector<T,Alloc>& x, vector<T,Alloc>& y);
     };
+
         # include "vectorIterators.hpp"
         # include "vectorReverseIterators.hpp"
+        # include "vectorConstIterator.hpp"
         # include "vectorInit.hpp"
         # include "vectorOperators.hpp"
         # include "vectorCapacity.hpp"

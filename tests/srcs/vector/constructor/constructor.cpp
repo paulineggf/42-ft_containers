@@ -62,6 +62,11 @@ int        main(void)
     ft::vector<int> third (second.begin(),second.end());  // iterating through second
     ft::vector<int> fourth (third);                       // a copy of third
 
+    std::cout << "The contents of first are:";
+    for (ft::vector<int>::iterator it = first.begin(); it != first.end(); ++it)
+        std::cout << ' ' << *it;
+    std::cout << '\n';
+
     // the iterator constructor can also be used to construct from arrays:
     int myints[] = {16,2,77,29};
     ft::vector<int> fifth (myints, myints + sizeof(myints) / sizeof(int) );

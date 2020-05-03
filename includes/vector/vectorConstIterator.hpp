@@ -54,7 +54,7 @@ void    ft::vector<T, Alloc>::const_iterator::operator--()
 }
 
 template<typename T, class Alloc>
-T       &ft::vector<T, Alloc>::const_iterator::operator*()
+T       ft::vector<T, Alloc>::const_iterator::operator*() 
 {
     return (*_arg)[_idx];
 }
@@ -119,16 +119,3 @@ typename ft::vector<T, Alloc>::size_type        ft::vector<T, Alloc>::const_iter
     return _idx;
 }
 
-template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::const_iterator            ft::vector<T, Alloc>::cbegin() const
-{
-    ft::vector<T, Alloc>::const_iterator it(this, 0);
-    return it;
-}
-
-template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::const_iterator            ft::vector<T, Alloc>::cend() const
-{
-    ft::vector<T, Alloc>::const_iterator it(this, this->size());
-    return it;
-}

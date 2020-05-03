@@ -24,7 +24,7 @@ while true; do
     totaux=0
 
     echo ${normal} "
-    Do you want to test leaks memory? y/n"
+    Do you want to test memory leaks? y/n"
 
     read leaks
 
@@ -48,7 +48,7 @@ while true; do
                         "operator[]"    "at"            "front"     "back"   
                         "assign"        "push_back"     "pop_back"  "insert"  
                         "erase"         "swap"          "clear"     "relational_operators"
-                        "swap_overload" "bool")
+                        "swap_overload") #"bool")
 
     declare -a list=(   "constructor"   "operator="     "begin"     "end"
                         "rbegin"        "rend"          "empty"     "size"

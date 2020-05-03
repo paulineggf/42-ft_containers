@@ -1,1 +1,32 @@
-valgrind: ./mytest: No such file or directory
+==25507== Memcheck, a memory error detector
+==25507== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25507== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25507== Command: ./mytest
+==25507== 
+==25507== Invalid free() / delete / delete[] / realloc()
+==25507==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25507==    by 0x40196F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25507==    by 0x40159B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:50)
+==25507==    by 0x4011E4: main (operator=.cpp:25)
+==25507==  Address 0x5b7dc80 is 0 bytes inside a block of size 12 free'd
+==25507==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25507==    by 0x40196F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==25507==    by 0x4013DB: ft::vector<int, std::allocator<int> >::operator=(ft::vector<int, std::allocator<int> > const&) (vectorOperators.hpp:10)
+==25507==    by 0x400D8B: main (operator=.cpp:11)
+==25507==  Block was alloc'd at
+==25507==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25507==    by 0x401946: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==25507==    by 0x401879: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:50)
+==25507==    by 0x4017E7: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:111)
+==25507==    by 0x401303: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:32)
+==25507==    by 0x400CEE: main (operator=.cpp:7)
+==25507== 
+==25507== 
+==25507== HEAP SUMMARY:
+==25507==     in use at exit: 0 bytes in 0 blocks
+==25507==   total heap usage: 4 allocs, 5 frees, 80,928 bytes allocated
+==25507== 
+==25507== All heap blocks were freed -- no leaks are possible
+==25507== 
+==25507== For counts of detected and suppressed errors, rerun with: -v
+==25507== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

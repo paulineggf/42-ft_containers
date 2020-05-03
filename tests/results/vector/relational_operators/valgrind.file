@@ -1,38 +1,14 @@
-==25985== Memcheck, a memory error detector
-==25985== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==25985== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==25985== Command: ./mytest
-==25985== 
-==25985== Mismatched free() / delete / delete []
-==25985==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25985==    by 0x40270F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
-==25985==    by 0x401C73: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
-==25985==    by 0x4010F2: main (relational_operators.cpp:10)
-==25985==  Address 0x5b7dc80 is 0 bytes inside a block of size 12 alloc'd
-==25985==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25985==    by 0x402659: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
-==25985==    by 0x4025A7: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:107)
-==25985==    by 0x401AE3: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:33)
-==25985==    by 0x40109E: main (relational_operators.cpp:7)
-==25985== 
-==25985== Mismatched free() / delete / delete []
-==25985==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25985==    by 0x40270F: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
-==25985==    by 0x401C73: ft::vector<int, std::allocator<int> >::push_back(int) (vectorModifiers.hpp:21)
-==25985==    by 0x40112B: main (relational_operators.cpp:13)
-==25985==  Address 0x5b7dcd0 is 0 bytes inside a block of size 8 alloc'd
-==25985==    at 0x4C3089F: operator new[](unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==25985==    by 0x402659: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:72)
-==25985==    by 0x4025A7: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:107)
-==25985==    by 0x401AE3: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:33)
-==25985==    by 0x4010D6: main (relational_operators.cpp:8)
-==25985== 
-==25985== 
-==25985== HEAP SUMMARY:
-==25985==     in use at exit: 0 bytes in 0 blocks
-==25985==   total heap usage: 11 allocs, 11 frees, 81,276 bytes allocated
-==25985== 
-==25985== All heap blocks were freed -- no leaks are possible
-==25985== 
-==25985== For counts of detected and suppressed errors, rerun with: -v
-==25985== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
+==25853== Memcheck, a memory error detector
+==25853== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25853== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25853== Command: ./mytest
+==25853== 
+==25853== 
+==25853== HEAP SUMMARY:
+==25853==     in use at exit: 0 bytes in 0 blocks
+==25853==   total heap usage: 11 allocs, 11 frees, 81,276 bytes allocated
+==25853== 
+==25853== All heap blocks were freed -- no leaks are possible
+==25853== 
+==25853== For counts of detected and suppressed errors, rerun with: -v
+==25853== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
