@@ -12,5 +12,10 @@ int main ()
     std::cout << ' ' << *it;
   std::cout << '\n';
 
+  std::cout << "myvector contains:";
+  for (ft::vector<int>::const_iterator it = myvector.begin() ; it != myvector.end(); ++it)
+    std::cout << ' ' << *it;
+  std::cout << '\n';
+
   return 0;
 }

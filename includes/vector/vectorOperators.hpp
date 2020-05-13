@@ -10,7 +10,12 @@ ft::vector<T, Alloc>   &ft::vector<T, Alloc>::operator=(const ft::vector<T, Allo
         _alloc.deallocate(_arg, _capacity);
     }
     else
-        this->assign(rhs.begin(), rhs.end());
+    {
+        if (rhs._size > _capacity)
+            this->reserve(rhs._size);
+        for (size_type i = 0; i < rhs._size; i++)
+            _arg[i] = rhs._arg[i];
+    }
     _size = rhs._size;
     _capacity = rhs._capacity;
     return *this;

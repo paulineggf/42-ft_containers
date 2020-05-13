@@ -21,8 +21,11 @@ int     main(void)
     ft::vector<int>::iterator b(a);
     ft::vector<int>::iterator c;
     ft::vector<int>::iterator d = myvector2.begin();
+    (void)d;
 
     c = a;
+
+
 
     if (a == b)  std::cout << "true" << std::endl;
     else std::cout << "false" << std::endl;
@@ -54,10 +57,36 @@ int     main(void)
     a = 4 + a;
     std::cout << "13: " << *a << std::endl;
     a = a - 4;
-    std::cout << "14: " << a - c << std::endl;
+    std::cout << "14: " << *a << std::endl;
+    a++;
+    std::cout << "15: " << a - c << std::endl;
+
+    if (a < b)  std::cout << "true" << std::endl;
+    else std::cout << "false" << std::endl;
+    if (a > b)  std::cout << "true" << std::endl;
+    else std::cout << "false" << std::endl;
+
+    if (a <= b)  std::cout << "true" << std::endl;
+    else std::cout << "false" << std::endl;
+    if (a >= b)  std::cout << "true" << std::endl;
+    else std::cout << "false" << std::endl;
+
+    a += 1;
+    std::cout << "16: " << *a << std::endl;
+    a -= 2;
+    std::cout << "17: " << *a << std::endl;
+    std::cout << "18: " << a[0] << std::endl;
 
 
-    (void)d;
+    ft::vector<int>::reverse_iterator until2(myvector.rend());
+    ft::vector<int>::reverse_iterator from2(myvector.rbegin());
+
+    while (from2 != until2)
+    {
+        std::cout << *from2 << ' ';
+        from2++;
+    }
+    std::cout << std::endl;
 
     return 0;
 }

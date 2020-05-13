@@ -48,16 +48,18 @@ while true; do
                         "operator[]"    "at"            "front"     "back"   
                         "assign"        "push_back"     "pop_back"  "insert"  
                         "erase"         "swap"          "clear"     "relational_operators"
-                        "swap_overload") #"bool")
+                        "swap_overload" "iterator"      "const_iterator"
+                        "reverse_iterator" "const_reverse_iterator")
 
-    declare -a list=(   "constructor"   "operator="     "begin"     "end"
-                        "rbegin"        "rend"          "empty"     "size"
-                        "max_size"      "front"         "back"      "push_front"
-                        "pop_front"     "push_back"     "pop_back"  "insert"
-                        "erase"         "swap"          "resize"    "clear"
-                        "splice"        "remove"        "remove_if" "unique"
-                        "merge"         "sort"          "reverse"   "relational_operators"
-                        "swap") 
+    declare -a list=(   "constructor"   "assign"        "back"      "begin"     
+                        "clear"         "empty"         "end"       "erase"
+                        "front"         "insert"        "max_size"  "merge"
+                        "operator="     "pop_back"      "pop_front" "push_back"
+                        "push_front"    "rbegin"        "remove"    "remove_if"
+                        "rend"          "resize"        "reverse"   "size"
+                        "sort"          "splice"        "swap"      "unique"
+                        "swap_overload" "relational_operators"      "iterator"
+                        "const_iterator"    "reverse_iterator"  "const_reverse_iterator") 
 
     tab=()
     if [[ "$selection" == "$vectorSelect" || "$selection" == "$all" ]]; then
@@ -73,9 +75,11 @@ while true; do
         echo -e "\033[1;34m\n | TESTS ${subdir^^} CONTAINER | \n "
         for val in ${tab[$subdir]}; do
             sed -i "s/ft::${subdir}/std::${subdir}/g" $dir/srcs/$subdir/$val/*.cpp
-            cd $dir/srcs/$subdir/$val && clang++ -o cpptest -Wall -Wextra -Werror -g -std=c++98 -I $includes/* *.cpp;
+            sed -i "s/ft::reverse_iterator/std::reverse_iterator/g" $dir/srcs/$subdir/$val/*.cpp
+            cd $dir/srcs/$subdir/$val && clang++ -o cpptest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/* ${val}.cpp;
             sed -i "s/std::${subdir}/ft::${subdir}/g" $dir/srcs/$subdir/$val/*.cpp
-            cd $dir/srcs/$subdir/$val && clang++ -o mytest -Wall -Wextra -Werror -g -std=c++98 -I $includes/* *.cpp;
+            sed -i "s/std::reverse_iterator/ft::reverse_iterator/g" $dir/srcs/$subdir/$val/*.cpp
+            cd $dir/srcs/$subdir/$val && clang++ -o mytest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/* ${val}.cpp;
             if [ $leaks == "y" ] ; then
                 valgrind ./mytest >&- 2> $dir/results/$subdir/$val/valgrind.file
             fi

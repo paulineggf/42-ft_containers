@@ -5,6 +5,7 @@
 # include <iostream>
 # include <exception>
 # include <algorithm>
+# include "reverse_iterator.hpp"
 
 namespace ft
 {
@@ -22,7 +23,7 @@ namespace ft
         typedef const value_type&           const_reference;
         typedef Alloc                       allocator_type;
         typedef std::ptrdiff_t              difference_type;
-
+        
         private:
 
         // ARGUMENTS
@@ -38,131 +39,137 @@ namespace ft
 
         class       iterator
         {
-            private:
-            vector<T>   *_arg;
-            size_type   _idx;
+            public:
+            typedef T                   value_type;
+            typedef T*                  pointer;
+            typedef std::size_t         size_type;
+            typedef value_type&         reference;
+            typedef const value_type&   const_reference;
+            typedef std::ptrdiff_t      difference_type;
+            typedef std::random_access_iterator_tag 
+                                        iterator_category;
+
+            protected:
+            vector<T, Alloc>    *_arg;
+            size_type           _idx;
 
             public:
 
             iterator();
-            iterator(vector<T, Alloc> *arg, int idx);
+            iterator(vector<T, Alloc> *arg, size_type idx);
+            iterator(const iterator &rhs);
             ~iterator();
 
             iterator        operator+(int nb);
+            friend
+            iterator        operator+(int nb, iterator &rhs) { return rhs + nb; }
             iterator        operator-(int nb);
+            friend
+            difference_type operator-(const iterator lhs, const iterator &rhs) {
+                return &(lhs._arg[lhs._idx]) - &(rhs._arg[rhs._idx]); }
+            void            operator+=(int nb);
+            void            operator-=(int nb);
             iterator        operator++();
             iterator        operator++(int);
             iterator        operator--();
             iterator        operator--(int);
             reference       operator*();
-            bool            operator!=(const iterator &rhs); // à revoir
-            void            operator=(vector<T, Alloc> *rhs);
+            bool            operator!=(const iterator &rhs);
+            void            operator=(const iterator &rhs);
             bool            operator<(const iterator &rhs);
             bool            operator>(const iterator &rhs);
             bool            operator<=(const iterator &rhs);
             bool            operator>=(const iterator &rhs);
             bool            operator==(const iterator &rhs);
-
-
-            size_type       getIdx();
+            reference       operator[](int nb);
         };
 
-        class       reverse_iterator
+        // REVERSE_ITERATOR
+
+        typedef ft::reverse_iterator<iterator>
+                                        reverse_iterator;
+
+        // CONST_ITERATOR
+
+        class       const_iterator : public iterator
         {
-            private:
-            vector<T>   *_arg;
-            int         _idx;
-
-
             public:
-            reverse_iterator();
-            reverse_iterator(vector<T, Alloc> *arg, int idx);
-            ~reverse_iterator();
 
-            reverse_iterator        operator+(int nb);
-            reverse_iterator        operator-(int nb);
-            void                    operator++();
-            void                    operator++(int);
-            void                    operator--();
-            void                    operator--(int);
-            T                       &operator*();
-            bool                    operator!=(const reverse_iterator &rhs); // à revoir
-            void                    operator=(vector<T, Alloc> *rhs);
-            bool                    operator<(const reverse_iterator &rhs);
-            bool                    operator>(const reverse_iterator &rhs);
-            bool                    operator<=(const reverse_iterator &rhs);
-            bool                    operator>=(const reverse_iterator &rhs);
-            // bool                    operator==(const reverse_iterator &rhs);
-        
-            size_type               getIdx();
-        };
+            typedef const_reference reference;
 
-        class       const_iterator
-        {
-            private:
-            const vector<T>     *_arg;
-            size_type           _idx;
-
-            public:
             const_iterator();
-            const_iterator(const vector<T, Alloc>  *arg, int idx);
+            const_iterator(iterator it);
+            const_iterator(vector<T, Alloc> *arg, int idx);
+            const_iterator(const vector<T, Alloc> *arg, int idx);
             ~const_iterator();
 
             const_iterator        operator+(int nb);
+            friend
+            const_iterator        operator+(int nb, const_iterator &rhs) { return rhs + nb; }
             const_iterator        operator-(int nb);
-            void                  operator++();
-            void                  operator++(int);
-            void                  operator--();
-            void                  operator--(int);
-            value_type            operator*();
-            bool                  operator!=(const const_iterator &rhs); // à revoir
-            void                  operator=(vector<T, Alloc> *rhs);
+            friend
+            difference_type       operator-(const const_iterator lhs, const const_iterator &rhs) {
+                return (&((*lhs._arg)[lhs._idx])) - (&((*rhs._arg)[rhs._idx])); }
+            const_iterator        operator++();
+            const_iterator        operator++(int);
+            const_iterator        operator--();
+            const_iterator        operator--(int);
+            bool                  operator!=(const const_iterator &rhs);
+            const_reference       operator*();
+            void                  operator=(iterator &rhs);
+            void                  operator=(const const_iterator &rhs);
             bool                  operator<(const const_iterator &rhs);
             bool                  operator>(const const_iterator &rhs);
             bool                  operator<=(const const_iterator &rhs);
             bool                  operator>=(const const_iterator &rhs);
-            // bool                  operator==(const const_iterator &rhs);
-
-            size_type       getIdx();
+            bool                  operator==(const const_iterator &rhs);
         };
 
-        class       const_reverse_iterator
+        // CONST_REVERSE_ITERATOR
+
+        class       const_reverse_iterator : public reverse_iterator
         {
-            private:
-            vector<T>   *_arg;
-            int         _idx;
-
-
             public:
-            const_reverse_iterator();
-            const_reverse_iterator(vector<T, Alloc> *arg, int idx);
-            ~const_reverse_iterator();
+            
+            typedef const_reference reference;
 
-            const_reverse_iterator          operator+(int nb);
-            const_reverse_iterator          operator-(int nb);
-            void                            operator++();
-            void                            operator++(int);
-            void                            operator--();
-            void                            operator--(int);
-            T                               &operator*();
-            bool                            operator!=(const const_reverse_iterator &rhs); // à revoir
-            void                            operator=(vector<T, Alloc> *rhs);
-            bool                            operator<(const const_reverse_iterator &rhs);
-            bool                            operator>(const const_reverse_iterator &rhs);
-            bool                            operator<=(const const_reverse_iterator &rhs);
-            bool                            operator>=(const const_reverse_iterator &rhs);
-            // bool                    operator==(const const_reverse_iterator &rhs);
-        
-            size_type               getIdx();
+            const_reverse_iterator() : ft::reverse_iterator<iterator>() {}
+            const_reverse_iterator(const iterator &it) : ft::reverse_iterator<iterator>(it) {}
+            const_reverse_iterator(const const_iterator &cit) : ft::reverse_iterator<const_iterator>(cit) {}
+            const_reverse_iterator(const reverse_iterator &rit) : ft::reverse_iterator<iterator>(rit) {}
+            ~const_reverse_iterator() {}
+
+            const_reverse_iterator      operator+(int nb);
+            friend
+            const_reverse_iterator      operator+(int nb, const_reverse_iterator &rhs) { return rhs + nb; }
+            const_reverse_iterator      operator-(int nb);
+            friend
+            difference_type             operator-(const const_reverse_iterator lhs, const const_reverse_iterator &rhs) {
+                return (&((*lhs._arg)[lhs._idx])) - (&((*rhs._arg)[rhs._idx])); }
+            const_reverse_iterator      operator++();
+            const_reverse_iterator      operator++(int);
+            const_reverse_iterator      operator--();
+            const_reverse_iterator      operator--(int);
+            bool                        operator!=(const const_reverse_iterator &rhs);
+            const_reference             operator*();
+            void                        operator=(iterator &rhs);
+            void                        operator=(const const_reverse_iterator &rhs);
+            bool                        operator<(const const_reverse_iterator &rhs);
+            bool                        operator>(const const_reverse_iterator &rhs);
+            bool                        operator<=(const const_reverse_iterator &rhs);
+            bool                        operator>=(const const_reverse_iterator &rhs);
+            bool                        operator==(const const_reverse_iterator &rhs);
         };
+
+        public:
 
         iterator                  begin();
-        const_iterator            begin() const;
         iterator                  end();
-        const_iterator            end() const;
         reverse_iterator          rbegin();
-        const_reverse_iterator    rbegin() const;
         reverse_iterator          rend();
+        const_iterator            begin() const;
+        const_iterator            end() const;
+        const_reverse_iterator    rbegin() const;
         const_reverse_iterator    rend() const;
         
         // INITIALISATIONS
@@ -202,8 +209,9 @@ namespace ft
 
         template<class InputIterator>
         void                assign(InputIterator first, InputIterator last);
-        void                assign(size_type n, const T &val);
+        void                assign(size_type n, const value_type &val);
         void                assign(int n, int val);
+        void                assign(int n, bool val);
         void                push_back(const value_type &arg);
         void                pop_back();
         iterator            insert(iterator position, const value_type& val);
@@ -217,19 +225,26 @@ namespace ft
         void                swap(vector<T, Alloc> &x);
         void                clear();
 
-        void                swap(vector<T,Alloc>& x, vector<T,Alloc>& y);
+        friend
+        void                swap(vector<T,Alloc>& x, vector<T,Alloc>& y)
+        {
+            vector<T, Alloc> tmp;
+
+            tmp.assign(x.begin(), x.end());
+            x.assign(y.begin(), y.end());
+            y.assign(tmp.begin(), tmp.end());
+        }
     };
 
-        # include "vectorIterators.hpp"
-        # include "vectorReverseIterators.hpp"
-        # include "vectorConstIterator.hpp"
-        # include "vectorInit.hpp"
-        # include "vectorOperators.hpp"
-        # include "vectorCapacity.hpp"
-        # include "vectorAccess.hpp"
-        # include "vectorModifiers.hpp"
-        # include "vectorRelationOperators.hpp"
+    # include "vectorIterators.hpp"
+    # include "vectorConstIterators.hpp"
+    # include "vectorConstReverseIterators.hpp"
+    # include "vectorInit.hpp"
+    # include "vectorOperators.hpp"
+    # include "vectorCapacity.hpp"
+    # include "vectorAccess.hpp"
+    # include "vectorModifiers.hpp"
+    # include "vectorRelationOperators.hpp"
 }
-
 
 #endif

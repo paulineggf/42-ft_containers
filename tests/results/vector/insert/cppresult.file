@@ -1,1 +1,5 @@
-myvector contains: 501 502 503 300 300 400 400 200 100 100 100
+myvector contains: 10 20 30
+myvector contains: 40 10 20 30
+myvector contains: 40 10 20 30 50 50
+myvector contains: 40 10 60 70 20 30 50 50
+myvector contains: 501 502 503 40 10 60 70 20 30 50 50

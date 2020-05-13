@@ -7,16 +7,23 @@ _idx(0) {
 }
 
 template<typename T, class Alloc>
-ft::vector<T, Alloc>::iterator::iterator(ft::vector<T, Alloc> *arg, int idx) :
+ft::vector<T, Alloc>::iterator::iterator(ft::vector<T, Alloc> *arg, size_type idx) :
 _arg(arg),
 _idx(idx) {
+}
+
+template<typename T, class Alloc>
+ft::vector<T, Alloc>::iterator::iterator(const ft::vector<T, Alloc>::iterator &rhs) :
+_arg(rhs._arg),
+_idx(rhs._idx) {
 }
 
 template<typename T, class Alloc>
 ft::vector<T, Alloc>::iterator::~iterator() {}
 
 template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::iterator    ft::vector<T, Alloc>::iterator::operator+(int nb)
+typename ft::vector<T, Alloc>::iterator
+ft::vector<T, Alloc>::iterator::operator+(int nb)
 {
     ft::vector<T, Alloc>::iterator it(_arg, _idx + nb);
     return it;
@@ -27,6 +34,18 @@ typename ft::vector<T, Alloc>::iterator    ft::vector<T, Alloc>::iterator::opera
 {
     ft::vector<T, Alloc>::iterator it(_arg, _idx - nb);
     return it;
+}
+
+template<typename T, class Alloc>
+void                                       ft::vector<T, Alloc>::iterator::operator+=(int nb)
+{
+    _idx = _idx + nb;
+}
+
+template<typename T, class Alloc>
+void                                       ft::vector<T, Alloc>::iterator::operator-=(int nb)
+{
+    _idx = _idx - nb;
 }
 
 template<typename T, class Alloc>
@@ -76,15 +95,16 @@ bool    ft::vector<T, Alloc>::iterator::operator!=(const ft::vector<T, Alloc>::i
 }
 
 template<typename T, class Alloc>
-void    ft::vector<T, Alloc>::iterator::operator=(ft::vector<T, Alloc> *rhs)
+void    ft::vector<T, Alloc>::iterator::operator=(const ft::vector<T, Alloc>::iterator &rhs)
 {
-    _idx = rhs->size();
+    _arg = rhs._arg;
+    _idx = rhs._idx;
 }
 
 template<typename T, class Alloc>
 bool        ft::vector<T, Alloc>::iterator::operator<(const ft::vector<T, Alloc>::iterator &rhs)
 {
-    if (_idx < rhs._idx)
+    if ((&(_arg[_idx])) < (&(rhs._arg[rhs._idx])))
         return true;
     return false;
 }
@@ -92,7 +112,7 @@ bool        ft::vector<T, Alloc>::iterator::operator<(const ft::vector<T, Alloc>
 template<typename T, class Alloc>
 bool        ft::vector<T, Alloc>::iterator::operator>(const ft::vector<T, Alloc>::iterator &rhs)
 {
-    if (_idx > rhs._idx)
+    if ((&(_arg[_idx])) > (&(rhs._arg[rhs._idx])))
         return true;
     return false;
 }
@@ -100,7 +120,7 @@ bool        ft::vector<T, Alloc>::iterator::operator>(const ft::vector<T, Alloc>
 template<typename T, class Alloc>
 bool        ft::vector<T, Alloc>::iterator::operator<=(const ft::vector<T, Alloc>::iterator &rhs)
 {
-    if (_idx <= rhs._idx)
+     if ((&(_arg[_idx])) <= (&(rhs._arg[rhs._idx])))
         return true;
     return false;
 }
@@ -108,7 +128,7 @@ bool        ft::vector<T, Alloc>::iterator::operator<=(const ft::vector<T, Alloc
 template<typename T, class Alloc>
 bool        ft::vector<T, Alloc>::iterator::operator>=(const ft::vector<T, Alloc>::iterator &rhs)
 {
-    if (_idx >= rhs._idx)
+    if ((&(_arg[_idx])) >= (&(rhs._arg[rhs._idx])))
         return true;
     return false;
 }
@@ -122,22 +142,15 @@ bool        ft::vector<T, Alloc>::iterator::operator==(const ft::vector<T, Alloc
 }
 
 template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::size_type        ft::vector<T, Alloc>::iterator::getIdx()
+typename ft::vector<T, Alloc>::reference        ft::vector<T, Alloc>::iterator::operator[](int nb)
 {
-    return _idx;
+    return (*_arg)[nb];
 }
 
 template<typename T, class Alloc>
 typename ft::vector<T, Alloc>::iterator            ft::vector<T, Alloc>::begin()
 {
     ft::vector<T, Alloc>::iterator it(this, 0);
-    return it;
-}
-
-template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::const_iterator            ft::vector<T, Alloc>::begin() const
-{
-    ft::vector<T, Alloc>::const_iterator it(this, 0);
     return it;
 }
 
@@ -149,9 +162,15 @@ typename ft::vector<T, Alloc>::iterator            ft::vector<T, Alloc>::end()
 }
 
 template<typename T, class Alloc>
-typename ft::vector<T, Alloc>::const_iterator            ft::vector<T, Alloc>::end() const
+typename ft::reverse_iterator<typename ft::vector<T, Alloc>::iterator>          ft::vector<T, Alloc>::rbegin()
 {
-    ft::vector<T, Alloc>::const_iterator it(this, this->size());
-    return it;
+    reverse_iterator rit(iterator(this, this->size()));
+    return rit;
 }
 
+template<typename T, class Alloc>
+typename ft::reverse_iterator<typename ft::vector<T, Alloc>::iterator>          ft::vector<T, Alloc>::rend()
+{
+    reverse_iterator rit(iterator(this, 0));
+    return rit;
+}

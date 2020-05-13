@@ -1,0 +1,9 @@
+myvector:
+ 9 8 7 6 5 4 3 2 1 0
+myvector2:
+ 9 8 7 6 5 4 3 2 1 0
+myvector3:
+ 9 8 7 6 5 4 3 2 1 0
+*it == 3, *r_it.base() == 3
+*r_it == 2, *(r_it.base()-1) == 2
+0 1 2 3 4 5 
