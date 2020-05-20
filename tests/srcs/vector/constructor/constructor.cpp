@@ -54,6 +54,17 @@ public :
     inline bool operator!=(myAllocator const& a) { return !operator==(a); }
 };   
 
+struct Player
+{
+	int id;
+	std::string name;
+ 
+	Player(int playerId, std::string playerName) :
+			id(playerId), name(playerName)
+	{
+	}
+};
+
 int        main(void)
 {
       // constructors used in the same order as described above:
@@ -89,5 +100,31 @@ int        main(void)
     for (ft::vector<std::string>::iterator it = str.begin(); it != str.end(); ++it)
         std::cout << ' ' << *it;
     std::cout << '\n';
+
+    	ft::vector<Player> listofPlayers;
+
+    listofPlayers.push_back(Player(22, "Sid"));
+    listofPlayers.push_back(Player(3, "Laura"));
+    listofPlayers.push_back(Player(43, "Riti"));
+ 
+	std::cout << "*******Iterate std::list using Iterators*******" << std::endl;
+ 
+//Create an iterator of std::list
+	ft::vector<Player>::iterator it;
+ 
+// Make iterate point to begining and incerement it one by one till it reaches the end of list.
+	for (it = listofPlayers.begin(); it != listofPlayers.end(); it++)
+	{
+		// Access the object through iterator
+		// int id = it->id;
+		// std::string name = it->name;
+ 
+		//Print the contents
+		// std::cout << id << " :: " << name << std::endl;
+		std::cout << (*it).name << " :: " << std::endl;
+		std::cout << it->name << " :: " << std::endl;
+ 
+	}
+
     return 0;
 }

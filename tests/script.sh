@@ -24,11 +24,6 @@ while true; do
     totaux=0
 
     echo ${normal} "
-    Do you want to test memory leaks? y/n"
-
-    read leaks
-
-    echo ${normal} "
 
     Enter the container number you want to correct:
             -1 Vector
@@ -42,6 +37,11 @@ while true; do
         break ;
     fi
 
+    echo ${normal} "
+    Do you want to test memory leaks? y/n"
+
+    read leaks
+
     declare -a vector=( "constructor"   "operator="     "begin"     "end"
                         "rbegin"        "rend"          "size"      "max_size"
                         "resize"        "capacity"      "empty"     "reserve"       
@@ -51,15 +51,14 @@ while true; do
                         "swap_overload" "iterator"      "const_iterator"
                         "reverse_iterator" "const_reverse_iterator")
 
-    declare -a list=(   "constructor"   "assign"        "back"      "begin"     
-                        "clear"         "empty"         "end"       "erase"
-                        "front"         "insert"        "max_size"  "merge"
-                        "operator="     "pop_back"      "pop_front" "push_back"
-                        "push_front"    "rbegin"        "remove"    "remove_if"
-                        "rend"          "resize"        "reverse"   "size"
-                        "sort"          "splice"        "swap"      "unique"
-                        "swap_overload" "relational_operators"      "iterator"
-                        "const_iterator"    "reverse_iterator"  "const_reverse_iterator") 
+    declare -a list=(   "constructor"   "assign"        "push_back" "clear"
+                        "iterator"      "insert"        "size"      "pop_back"
+                        "back"          "empty"         "pop_front" "front"
+                        "max_size"      "resize"        "erase"     "rbegin"
+                        "rend"          "push_front"    "swap"      "splice"
+                        "remove"        "remove_if"     "sort"      "unique"
+                        "merge"         "reverse"       "relational_operators"
+                        "swap_overload" "operator=")
 
     tab=()
     if [[ "$selection" == "$vectorSelect" || "$selection" == "$all" ]]; then
@@ -76,10 +75,10 @@ while true; do
         for val in ${tab[$subdir]}; do
             sed -i "s/ft::${subdir}/std::${subdir}/g" $dir/srcs/$subdir/$val/*.cpp
             sed -i "s/ft::reverse_iterator/std::reverse_iterator/g" $dir/srcs/$subdir/$val/*.cpp
-            cd $dir/srcs/$subdir/$val && clang++ -o cpptest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/* ${val}.cpp;
+            cd $dir/srcs/$subdir/$val && clang++ -o cpptest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/$subdir/ ${val}.cpp;
             sed -i "s/std::${subdir}/ft::${subdir}/g" $dir/srcs/$subdir/$val/*.cpp
             sed -i "s/std::reverse_iterator/ft::reverse_iterator/g" $dir/srcs/$subdir/$val/*.cpp
-            cd $dir/srcs/$subdir/$val && clang++ -o mytest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/* ${val}.cpp;
+            cd $dir/srcs/$subdir/$val && clang++ -o mytest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/$subdir/ ${val}.cpp;
             if [ $leaks == "y" ] ; then
                 valgrind ./mytest >&- 2> $dir/results/$subdir/$val/valgrind.file
             fi

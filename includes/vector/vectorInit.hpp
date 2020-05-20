@@ -37,7 +37,7 @@ ft::vector<T, Alloc>::vector(const ft::vector<T, Alloc> &copy)
 {
     this->_size = 0;
     this->_capacity = 0;
-    this->_alloc = _alloc;
+    this->_alloc = copy._alloc;
     for (size_type i = 0; i < copy._size; i++)
         this->push_back(copy.at(i));
 }

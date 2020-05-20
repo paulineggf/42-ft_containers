@@ -1,0 +1,28 @@
+==14390== Memcheck, a memory error detector
+==14390== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14390== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==14390== Command: ./mytest
+==14390== 
+==14390== Invalid read of size 8
+==14390==    at 0x401174: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==14390==    by 0x401068: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==14390==    by 0x400BF9: main (rbegin.cpp:18)
+==14390==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==14390==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14390==    by 0x40116F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==14390==    by 0x401068: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==14390==    by 0x400BF9: main (rbegin.cpp:18)
+==14390==  Block was alloc'd at
+==14390==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14390==    by 0x400CFE: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==14390==    by 0x400A4A: main (rbegin.cpp:9)
+==14390== 
+==14390== 
+==14390== HEAP SUMMARY:
+==14390==     in use at exit: 0 bytes in 0 blocks
+==14390==   total heap usage: 7 allocs, 7 frees, 81,016 bytes allocated
+==14390== 
+==14390== All heap blocks were freed -- no leaks are possible
+==14390== 
+==14390== For counts of detected and suppressed errors, rerun with: -v
+==14390== ERROR SUMMARY: 5 errors from 1 contexts (suppressed: 0 from 0)

@@ -87,6 +87,13 @@ typename ft::vector<T, Alloc>::reference       ft::vector<T, Alloc>::iterator::o
 }
 
 template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::pointer         ft::vector<T, Alloc>::iterator::operator->()
+{
+    return &((*_arg)[_idx]);
+}
+
+
+template<typename T, class Alloc>
 bool    ft::vector<T, Alloc>::iterator::operator!=(const ft::vector<T, Alloc>::iterator &rhs)
 {
     if ((&(_arg[_idx])) != (&(rhs._arg[rhs._idx])))
@@ -162,15 +169,44 @@ typename ft::vector<T, Alloc>::iterator            ft::vector<T, Alloc>::end()
 }
 
 template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::const_iterator            ft::vector<T, Alloc>::begin() const
+{
+    ft::vector<T, Alloc>::const_iterator it(this, 0);
+    return it;
+}
+
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::const_iterator            ft::vector<T, Alloc>::end() const
+{
+    ft::vector<T, Alloc>::const_iterator it(this, this->size());
+    return it;
+}
+
+template<typename T, class Alloc>
 typename ft::reverse_iterator<typename ft::vector<T, Alloc>::iterator>          ft::vector<T, Alloc>::rbegin()
 {
-    reverse_iterator rit(iterator(this, this->size()));
+    ft::reverse_iterator<typename ft::vector<T, Alloc>::iterator> rit((iterator(this, this->size())));
     return rit;
 }
 
 template<typename T, class Alloc>
 typename ft::reverse_iterator<typename ft::vector<T, Alloc>::iterator>          ft::vector<T, Alloc>::rend()
 {
-    reverse_iterator rit(iterator(this, 0));
+    ft::reverse_iterator<typename ft::vector<T, Alloc>::iterator> rit((iterator(this, 0)));
     return rit;
+}
+
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::const_reverse_iterator          ft::vector<T, Alloc>::rbegin() const
+{
+    ft::vector<T, Alloc>::const_reverse_iterator crit((const_iterator(this, this->size())));
+    return crit;
+}
+
+template<typename T, class Alloc>
+typename ft::vector<T, Alloc>::const_reverse_iterator          ft::vector<T, Alloc>::rend() const
+{
+
+    ft::vector<T, Alloc>::const_reverse_iterator crit((const_iterator(this, 0)));
+    return crit;
 }

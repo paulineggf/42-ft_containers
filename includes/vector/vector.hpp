@@ -46,8 +46,6 @@ namespace ft
             typedef value_type&         reference;
             typedef const value_type&   const_reference;
             typedef std::ptrdiff_t      difference_type;
-            typedef std::random_access_iterator_tag 
-                                        iterator_category;
 
             protected:
             vector<T, Alloc>    *_arg;
@@ -66,7 +64,7 @@ namespace ft
             iterator        operator-(int nb);
             friend
             difference_type operator-(const iterator lhs, const iterator &rhs) {
-                return &(lhs._arg[lhs._idx]) - &(rhs._arg[rhs._idx]); }
+                return &((*lhs._arg)[lhs._idx]) - &((*rhs._arg)[rhs._idx]); }
             void            operator+=(int nb);
             void            operator-=(int nb);
             iterator        operator++();
@@ -74,6 +72,7 @@ namespace ft
             iterator        operator--();
             iterator        operator--(int);
             reference       operator*();
+            pointer         operator->();
             bool            operator!=(const iterator &rhs);
             void            operator=(const iterator &rhs);
             bool            operator<(const iterator &rhs);
@@ -97,32 +96,11 @@ namespace ft
 
             typedef const_reference reference;
 
-            const_iterator();
-            const_iterator(iterator it);
-            const_iterator(vector<T, Alloc> *arg, int idx);
-            const_iterator(const vector<T, Alloc> *arg, int idx);
-            ~const_iterator();
-
-            const_iterator        operator+(int nb);
-            friend
-            const_iterator        operator+(int nb, const_iterator &rhs) { return rhs + nb; }
-            const_iterator        operator-(int nb);
-            friend
-            difference_type       operator-(const const_iterator lhs, const const_iterator &rhs) {
-                return (&((*lhs._arg)[lhs._idx])) - (&((*rhs._arg)[rhs._idx])); }
-            const_iterator        operator++();
-            const_iterator        operator++(int);
-            const_iterator        operator--();
-            const_iterator        operator--(int);
-            bool                  operator!=(const const_iterator &rhs);
-            const_reference       operator*();
-            void                  operator=(iterator &rhs);
-            void                  operator=(const const_iterator &rhs);
-            bool                  operator<(const const_iterator &rhs);
-            bool                  operator>(const const_iterator &rhs);
-            bool                  operator<=(const const_iterator &rhs);
-            bool                  operator>=(const const_iterator &rhs);
-            bool                  operator==(const const_iterator &rhs);
+            const_iterator() {}
+            const_iterator(iterator it) : iterator(it) {}
+            const_iterator(vector<T, Alloc> *arg, int idx) : iterator(arg, idx) {}
+            const_iterator(const vector<T, Alloc> *arg, int idx) : iterator(arg, idx) {}
+            ~const_iterator() {}
         };
 
         // CONST_REVERSE_ITERATOR
@@ -138,27 +116,6 @@ namespace ft
             const_reverse_iterator(const const_iterator &cit) : ft::reverse_iterator<const_iterator>(cit) {}
             const_reverse_iterator(const reverse_iterator &rit) : ft::reverse_iterator<iterator>(rit) {}
             ~const_reverse_iterator() {}
-
-            const_reverse_iterator      operator+(int nb);
-            friend
-            const_reverse_iterator      operator+(int nb, const_reverse_iterator &rhs) { return rhs + nb; }
-            const_reverse_iterator      operator-(int nb);
-            friend
-            difference_type             operator-(const const_reverse_iterator lhs, const const_reverse_iterator &rhs) {
-                return (&((*lhs._arg)[lhs._idx])) - (&((*rhs._arg)[rhs._idx])); }
-            const_reverse_iterator      operator++();
-            const_reverse_iterator      operator++(int);
-            const_reverse_iterator      operator--();
-            const_reverse_iterator      operator--(int);
-            bool                        operator!=(const const_reverse_iterator &rhs);
-            const_reference             operator*();
-            void                        operator=(iterator &rhs);
-            void                        operator=(const const_reverse_iterator &rhs);
-            bool                        operator<(const const_reverse_iterator &rhs);
-            bool                        operator>(const const_reverse_iterator &rhs);
-            bool                        operator<=(const const_reverse_iterator &rhs);
-            bool                        operator>=(const const_reverse_iterator &rhs);
-            bool                        operator==(const const_reverse_iterator &rhs);
         };
 
         public:
@@ -175,7 +132,8 @@ namespace ft
         // INITIALISATIONS
 
         explicit vector(const allocator_type& alloc = allocator_type());
-        explicit vector(size_type n, const value_type &val = value_type(), const allocator_type& alloc = allocator_type());        
+        explicit vector(size_type n, const value_type &val = value_type(),
+                        const allocator_type& alloc = allocator_type());        
         template<typename InputIterator>
         vector(InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type());
         vector(const vector<T, Alloc> &copy);            
@@ -211,7 +169,6 @@ namespace ft
         void                assign(InputIterator first, InputIterator last);
         void                assign(size_type n, const value_type &val);
         void                assign(int n, int val);
-        void                assign(int n, bool val);
         void                push_back(const value_type &arg);
         void                pop_back();
         iterator            insert(iterator position, const value_type& val);
@@ -237,8 +194,6 @@ namespace ft
     };
 
     # include "vectorIterators.hpp"
-    # include "vectorConstIterators.hpp"
-    # include "vectorConstReverseIterators.hpp"
     # include "vectorInit.hpp"
     # include "vectorOperators.hpp"
     # include "vectorCapacity.hpp"

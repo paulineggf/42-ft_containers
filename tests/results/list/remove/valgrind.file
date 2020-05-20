@@ -1,0 +1,47 @@
+==14495== Memcheck, a memory error detector
+==14495== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14495== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==14495== Command: ./mytest
+==14495== 
+==14495== Invalid read of size 8
+==14495==    at 0x400FE1: ft::list<int, std::allocator<int> >::iterator::operator++() (listIterators.hpp:34)
+==14495==    by 0x401553: ft::list<int, std::allocator<int> >::iterator::operator++(int) (listIterators.hpp:26)
+==14495==    by 0x400E40: ft::list<int, std::allocator<int> >::remove(int const&) (listOperations.hpp:29)
+==14495==    by 0x400A5B: main (remove.cpp:11)
+==14495==  Address 0x5b7dcf0 is 16 bytes inside a block of size 24 free'd
+==14495==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14495==    by 0x401488: ft::list<int, std::allocator<int> >::erase(ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:196)
+==14495==    by 0x400DC0: ft::list<int, std::allocator<int> >::remove(int const&) (listOperations.hpp:34)
+==14495==    by 0x400A5B: main (remove.cpp:11)
+==14495==  Block was alloc'd at
+==14495==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14495==    by 0x401252: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:11)
+==14495==    by 0x4010CE: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:68)
+==14495==    by 0x400C9F: ft::list<int, std::allocator<int> >::list<int*>(int*, int*, std::allocator<int> const&) (listInit.hpp:27)
+==14495==    by 0x400A39: main (remove.cpp:9)
+==14495== 
+==14495== Invalid read of size 8
+==14495==    at 0x401174: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==14495==    by 0x401008: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==14495==    by 0x400BEC: main (remove.cpp:19)
+==14495==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==14495==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14495==    by 0x40116F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==14495==    by 0x401008: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==14495==    by 0x400BEC: main (remove.cpp:19)
+==14495==  Block was alloc'd at
+==14495==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14495==    by 0x4011EE: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==14495==    by 0x4010CE: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:68)
+==14495==    by 0x400C9F: ft::list<int, std::allocator<int> >::list<int*>(int*, int*, std::allocator<int> const&) (listInit.hpp:27)
+==14495==    by 0x400A39: main (remove.cpp:9)
+==14495== 
+==14495== 
+==14495== HEAP SUMMARY:
+==14495==     in use at exit: 0 bytes in 0 blocks
+==14495==   total heap usage: 6 allocs, 6 frees, 80,992 bytes allocated
+==14495== 
+==14495== All heap blocks were freed -- no leaks are possible
+==14495== 
+==14495== For counts of detected and suppressed errors, rerun with: -v
+==14495== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)

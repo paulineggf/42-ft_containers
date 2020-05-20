@@ -96,7 +96,7 @@ void        ft::vector<T, Alloc>::assign(InputIterator first, InputIterator last
 }
 
 template<typename T, class Alloc>
-void        ft::vector<T, Alloc>::assign(ft::vector<T, Alloc>::size_type n, const value_type &val)
+void        ft::vector<T, Alloc>::assign(size_type n, const value_type &val)
 {
     if (n > _capacity)
         this->reserve(n);
@@ -107,16 +107,6 @@ void        ft::vector<T, Alloc>::assign(ft::vector<T, Alloc>::size_type n, cons
 
 template<typename T, class Alloc>
 void        ft::vector<T, Alloc>::assign(int n, int val)
-{
-    if (n > (int)_capacity)
-        this->reserve(n);
-    for (int i = 0; i < n; i++)
-        _arg[i] = val;
-    _size = n;
-}
-
-template<typename T, class Alloc>
-void        ft::vector<T, Alloc>::assign(int n, bool val)
 {
     if (n > (int)_capacity)
         this->reserve(n);
