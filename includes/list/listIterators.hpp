@@ -36,19 +36,23 @@ typename ft::list<T, Alloc>::iterator    &ft::list<T, Alloc>::iterator::operator
 }
 
 template<class T, class Alloc>
-typename ft::list<T, Alloc>::iterator    &ft::list<T, Alloc>::iterator::operator--()
+typename ft::list<T, Alloc>::iterator    ft::list<T, Alloc>::iterator::operator--()
 {
+    ft::list<T, Alloc>::iterator it(_M_node);
+
     if (_M_node)
        _M_node = _M_node->_M_prev;
-    return *this;
+    return it;
 }
 
 template<class T, class Alloc>
-typename ft::list<T, Alloc>::iterator    &ft::list<T, Alloc>::iterator::operator--(int)
+typename ft::list<T, Alloc>::iterator    ft::list<T, Alloc>::iterator::operator--(int)
 {
+    ft::list<T, Alloc>::iterator it(_M_node);
+    
     if (_M_node)
        _M_node = _M_node->_M_prev;
-    return *this;
+    return it;
 }
 
 template<class T, class Alloc>
@@ -75,6 +79,14 @@ template<class T, class Alloc>
 void        ft::list<T, Alloc>::iterator::operator=(const iterator &rhs)
 {
     _M_node = rhs._M_node;
+}
+
+template<typename T, class Alloc>
+bool        ft::list<T, Alloc>::iterator::operator==(const ft::list<T, Alloc>::iterator &rhs)
+{
+    if ((&(_M_node->_data)) == (&(rhs._M_node->_data)))
+        return true;
+    return false;
 }
 
 template<class T, class Alloc>

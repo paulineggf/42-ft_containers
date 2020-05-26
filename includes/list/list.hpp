@@ -73,8 +73,8 @@ namespace ft
             void            operator=(const iterator &rhs);
             iterator        &operator++();
             iterator        operator++(int);
-            iterator        &operator--();
-            iterator        &operator--(int);
+            iterator        operator--();
+            iterator        operator--(int);
             reference       operator*();
             pointer         operator->();
             bool            operator!=(const iterator &rhs);

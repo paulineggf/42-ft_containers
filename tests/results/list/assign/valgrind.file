@@ -1,59 +1,59 @@
-==14112== Memcheck, a memory error detector
-==14112== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==14112== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==14112== Command: ./mytest
-==14112== 
-==14112== Invalid read of size 8
-==14112==    at 0x4010A4: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==14112==    by 0x400F23: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:65)
-==14112==    by 0x400AED: main (assign.cpp:16)
-==14112==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
-==14112==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==14112==    by 0x40109F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==14112==    by 0x400F23: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:65)
-==14112==    by 0x400AED: main (assign.cpp:16)
-==14112==  Block was alloc'd at
-==14112==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==14112==    by 0x40112E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==14112==    by 0x400D9E: ft::list<int, std::allocator<int> >::assign(int, int) (listModifiers.hpp:86)
-==14112==    by 0x400A6D: main (assign.cpp:11)
-==14112== 
-==14112== Invalid read of size 8
-==14112==    at 0x4010A4: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==14112==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==14112==    by 0x400BEA: main (assign.cpp:21)
-==14112==  Address 0x5b7df30 is 16 bytes inside a block of size 24 free'd
-==14112==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==14112==    by 0x40109F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==14112==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==14112==    by 0x400BEA: main (assign.cpp:21)
-==14112==  Block was alloc'd at
-==14112==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==14112==    by 0x40112E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==14112==    by 0x400E0F: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:68)
-==14112==    by 0x400AA7: main (assign.cpp:13)
-==14112== 
-==14112== Invalid read of size 8
-==14112==    at 0x4010A4: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==14112==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==14112==    by 0x400C71: main (assign.cpp:21)
-==14112==  Address 0x5b7e1d0 is 16 bytes inside a block of size 24 free'd
-==14112==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==14112==    by 0x40109F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==14112==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==14112==    by 0x400C71: main (assign.cpp:21)
-==14112==  Block was alloc'd at
-==14112==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==14112==    by 0x40112E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==14112==    by 0x400F3E: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:68)
-==14112==    by 0x400AED: main (assign.cpp:16)
-==14112== 
-==14112== 
-==14112== HEAP SUMMARY:
-==14112==     in use at exit: 0 bytes in 0 blocks
-==14112==   total heap usage: 19 allocs, 19 frees, 81,304 bytes allocated
-==14112== 
-==14112== All heap blocks were freed -- no leaks are possible
-==14112== 
-==14112== For counts of detected and suppressed errors, rerun with: -v
-==14112== ERROR SUMMARY: 17 errors from 3 contexts (suppressed: 0 from 0)
+==2016== Memcheck, a memory error detector
+==2016== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2016== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==2016== Command: ./mytest
+==2016== 
+==2016== Invalid read of size 8
+==2016==    at 0x4010A4: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==2016==    by 0x400F23: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:65)
+==2016==    by 0x400AED: main (assign.cpp:16)
+==2016==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==2016==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2016==    by 0x40109F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==2016==    by 0x400F23: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:65)
+==2016==    by 0x400AED: main (assign.cpp:16)
+==2016==  Block was alloc'd at
+==2016==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2016==    by 0x40112E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==2016==    by 0x400D9E: ft::list<int, std::allocator<int> >::assign(int, int) (listModifiers.hpp:86)
+==2016==    by 0x400A6D: main (assign.cpp:11)
+==2016== 
+==2016== Invalid read of size 8
+==2016==    at 0x4010A4: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==2016==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==2016==    by 0x400BEA: main (assign.cpp:21)
+==2016==  Address 0x5b7df30 is 16 bytes inside a block of size 24 free'd
+==2016==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2016==    by 0x40109F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==2016==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==2016==    by 0x400BEA: main (assign.cpp:21)
+==2016==  Block was alloc'd at
+==2016==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2016==    by 0x40112E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==2016==    by 0x400E0F: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:68)
+==2016==    by 0x400AA7: main (assign.cpp:13)
+==2016== 
+==2016== Invalid read of size 8
+==2016==    at 0x4010A4: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==2016==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==2016==    by 0x400C71: main (assign.cpp:21)
+==2016==  Address 0x5b7e1d0 is 16 bytes inside a block of size 24 free'd
+==2016==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2016==    by 0x40109F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==2016==    by 0x400F98: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==2016==    by 0x400C71: main (assign.cpp:21)
+==2016==  Block was alloc'd at
+==2016==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2016==    by 0x40112E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==2016==    by 0x400F3E: void ft::list<int, std::allocator<int> >::assign<int*>(int*, int*) (listModifiers.hpp:68)
+==2016==    by 0x400AED: main (assign.cpp:16)
+==2016== 
+==2016== 
+==2016== HEAP SUMMARY:
+==2016==     in use at exit: 0 bytes in 0 blocks
+==2016==   total heap usage: 19 allocs, 19 frees, 81,304 bytes allocated
+==2016== 
+==2016== All heap blocks were freed -- no leaks are possible
+==2016== 
+==2016== For counts of detected and suppressed errors, rerun with: -v
+==2016== ERROR SUMMARY: 17 errors from 3 contexts (suppressed: 0 from 0)

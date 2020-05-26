@@ -1,0 +1,31 @@
+==20296== Memcheck, a memory error detector
+==20296== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==20296== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==20296== Command: ./mytest
+==20296== 
+==20296== Invalid write of size 4
+==20296==    at 0x400D45: main (begin.cpp:11)
+==20296==  Address 0x5b7dc84 is 4 bytes inside a block of size 8 free'd
+==20296==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20296==    by 0x4017FF: __gnu_cxx::new_allocator<ft::pair<char const, int> >::deallocate(ft::pair<char const, int>*, unsigned long) (new_allocator.h:125)
+==20296==    by 0x402500: ft::vector<ft::pair<char const, int>, std::allocator<ft::pair<char const, int> > >::push_back(ft::pair<char const, int> const&) (vectorModifiers.hpp:21)
+==20296==    by 0x401CDD: ft::vector<ft::pair<char const, int>, std::allocator<ft::pair<char const, int> > >::insert(ft::vector<ft::pair<char const, int>, std::allocator<ft::pair<char const, int> > >::iterator, ft::pair<char const, int> const&) (vectorModifiers.hpp:139)
+==20296==    by 0x401374: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char const, int> > >::operator[](char const&) (mapAcces.hpp:14)
+==20296==    by 0x400D31: main (begin.cpp:11)
+==20296==  Block was alloc'd at
+==20296==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==20296==    by 0x402716: __gnu_cxx::new_allocator<ft::pair<char const, int> >::allocate(unsigned long, void const*) (new_allocator.h:111)
+==20296==    by 0x4022E9: ft::vector<ft::pair<char const, int>, std::allocator<ft::pair<char const, int> > >::reserve(unsigned long) (vectorCapacity.hpp:50)
+==20296==    by 0x401B45: ft::vector<ft::pair<char const, int>, std::allocator<ft::pair<char const, int> > >::insert(ft::vector<ft::pair<char const, int>, std::allocator<ft::pair<char const, int> > >::iterator, ft::pair<char const, int> const&) (vectorModifiers.hpp:134)
+==20296==    by 0x401374: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char const, int> > >::operator[](char const&) (mapAcces.hpp:14)
+==20296==    by 0x400D07: main (begin.cpp:10)
+==20296== 
+==20296== 
+==20296== HEAP SUMMARY:
+==20296==     in use at exit: 0 bytes in 0 blocks
+==20296==   total heap usage: 6 allocs, 6 frees, 80,952 bytes allocated
+==20296== 
+==20296== All heap blocks were freed -- no leaks are possible
+==20296== 
+==20296== For counts of detected and suppressed errors, rerun with: -v
+==20296== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

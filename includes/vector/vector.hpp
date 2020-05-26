@@ -48,13 +48,13 @@ namespace ft
             typedef std::ptrdiff_t      difference_type;
 
             protected:
-            vector<T, Alloc>    *_arg;
-            size_type           _idx;
+            pointer     _arg;
+            size_type   _idx;
 
             public:
 
             iterator();
-            iterator(vector<T, Alloc> *arg, size_type idx);
+            iterator(pointer arg, size_type idx);
             iterator(const iterator &rhs);
             ~iterator();
 
@@ -64,7 +64,7 @@ namespace ft
             iterator        operator-(int nb);
             friend
             difference_type operator-(const iterator lhs, const iterator &rhs) {
-                return &((*lhs._arg)[lhs._idx]) - &((*rhs._arg)[rhs._idx]); }
+                return &((lhs._arg)[lhs._idx]) - &((rhs._arg)[rhs._idx]); }
             void            operator+=(int nb);
             void            operator-=(int nb);
             iterator        operator++();
@@ -97,9 +97,9 @@ namespace ft
             typedef const_reference reference;
 
             const_iterator() {}
+            const_iterator(pointer arg, int idx) : iterator(arg, idx) {}
             const_iterator(iterator it) : iterator(it) {}
-            const_iterator(vector<T, Alloc> *arg, int idx) : iterator(arg, idx) {}
-            const_iterator(const vector<T, Alloc> *arg, int idx) : iterator(arg, idx) {}
+            // const_iterator(const pointer arg, int idx) : iterator(arg, idx) {}
             ~const_iterator() {}
         };
 

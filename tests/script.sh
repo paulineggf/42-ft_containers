@@ -12,8 +12,10 @@ declare -A tab
 
 vectorSelect="1"
 listSelect="2"
-all="3"
-exit="4"
+stackSelect="3"
+mapSelect="4"
+all="5"
+exit="6"
 
 # Set your absolute INCLUDES path directory below
 includes="/home/pauline/CPP/ft_containers/includes"
@@ -28,8 +30,10 @@ while true; do
     Enter the container number you want to correct:
             -1 Vector
             -2 List
-            -3 All
-            -4 Exit"
+            -3 Stack
+            -4 Map
+            -5 All
+            -6 Exit"
 
     read selection
 
@@ -60,12 +64,25 @@ while true; do
                         "merge"         "reverse"       "relational_operators"
                         "swap_overload" "operator=")
 
+    declare -a stack=(  "constructor"   "size"          "pop"       "push"
+                        "top"           "empty"         "relational_operators")                        
+
+    declare -a map=(    "clear" "constructor"   "value_comp"    "begin"     "empty"
+                        "erase"         "find"          "size"      "max_size"
+                        "insert"        "swap")
+
     tab=()
     if [[ "$selection" == "$vectorSelect" || "$selection" == "$all" ]]; then
         tab[vector]+="${vector[@]}"
     fi
     if [[ "$selection" == "$listSelect" || "$selection" == "$all" ]]; then
         tab[list]+="${list[@]}"
+    fi
+    if [[ "$selection" == "$stackSelect" || "$selection" == "$all" ]]; then
+        tab[stack]+="${stack[@]}"
+    fi
+    if [[ "$selection" == "$mapSelect" || "$selection" == "$all" ]]; then
+        tab[map]+="${map[@]}"
     fi
 
     for subdir in ${!tab[@]}; do
@@ -75,9 +92,11 @@ while true; do
         for val in ${tab[$subdir]}; do
             sed -i "s/ft::${subdir}/std::${subdir}/g" $dir/srcs/$subdir/$val/*.cpp
             sed -i "s/ft::reverse_iterator/std::reverse_iterator/g" $dir/srcs/$subdir/$val/*.cpp
+            sed -i "s/ft::pair/std::pair/g" $dir/srcs/$subdir/$val/*.cpp
             cd $dir/srcs/$subdir/$val && clang++ -o cpptest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/$subdir/ ${val}.cpp;
             sed -i "s/std::${subdir}/ft::${subdir}/g" $dir/srcs/$subdir/$val/*.cpp
             sed -i "s/std::reverse_iterator/ft::reverse_iterator/g" $dir/srcs/$subdir/$val/*.cpp
+            sed -i "s/std::pair/ft::pair/g" $dir/srcs/$subdir/$val/*.cpp
             cd $dir/srcs/$subdir/$val && clang++ -o mytest -Wall -Wextra -Werror -g -std=c++98 -pedantic -I $includes/$subdir/ ${val}.cpp;
             if [ $leaks == "y" ] ; then
                 valgrind ./mytest >&- 2> $dir/results/$subdir/$val/valgrind.file

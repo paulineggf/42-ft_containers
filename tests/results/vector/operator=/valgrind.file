@@ -1,32 +1,32 @@
-==9659== Memcheck, a memory error detector
-==9659== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==9659== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==9659== Command: ./mytest
-==9659== 
-==9659== Invalid free() / delete / delete[] / realloc()
-==9659==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9659==    by 0x4019BF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
-==9659==    by 0x40159B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:50)
-==9659==    by 0x401214: main (operator=.cpp:25)
-==9659==  Address 0x5b7dc80 is 0 bytes inside a block of size 12 free'd
-==9659==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9659==    by 0x4019BF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
-==9659==    by 0x40140B: ft::vector<int, std::allocator<int> >::operator=(ft::vector<int, std::allocator<int> > const&) (vectorOperators.hpp:10)
-==9659==    by 0x400D8B: main (operator=.cpp:11)
-==9659==  Block was alloc'd at
-==9659==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==9659==    by 0x401996: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==9659==    by 0x4018C9: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:50)
-==9659==    by 0x401837: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:112)
-==9659==    by 0x401333: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:32)
-==9659==    by 0x400CEE: main (operator=.cpp:7)
-==9659== 
-==9659== 
-==9659== HEAP SUMMARY:
-==9659==     in use at exit: 0 bytes in 0 blocks
-==9659==   total heap usage: 4 allocs, 5 frees, 80,928 bytes allocated
-==9659== 
-==9659== All heap blocks were freed -- no leaks are possible
-==9659== 
-==9659== For counts of detected and suppressed errors, rerun with: -v
-==9659== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==16078== Memcheck, a memory error detector
+==16078== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16078== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==16078== Command: ./mytest
+==16078== 
+==16078== Invalid free() / delete / delete[] / realloc()
+==16078==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16078==    by 0x4019FF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==16078==    by 0x40159B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:50)
+==16078==    by 0x401214: main (operator=.cpp:25)
+==16078==  Address 0x5b7dc80 is 0 bytes inside a block of size 12 free'd
+==16078==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16078==    by 0x4019FF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
+==16078==    by 0x40140B: ft::vector<int, std::allocator<int> >::operator=(ft::vector<int, std::allocator<int> > const&) (vectorOperators.hpp:10)
+==16078==    by 0x400D8B: main (operator=.cpp:11)
+==16078==  Block was alloc'd at
+==16078==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16078==    by 0x4019B6: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
+==16078==    by 0x4018B9: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:50)
+==16078==    by 0x401827: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:117)
+==16078==    by 0x401333: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:32)
+==16078==    by 0x400CEE: main (operator=.cpp:7)
+==16078== 
+==16078== 
+==16078== HEAP SUMMARY:
+==16078==     in use at exit: 0 bytes in 0 blocks
+==16078==   total heap usage: 4 allocs, 5 frees, 80,928 bytes allocated
+==16078== 
+==16078== All heap blocks were freed -- no leaks are possible
+==16078== 
+==16078== For counts of detected and suppressed errors, rerun with: -v
+==16078== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

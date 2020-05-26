@@ -48,9 +48,10 @@ void                            ft::vector<T, Alloc>::reserve(size_type n)
     {
         T    *newArg;
         newArg = _alloc.allocate(n);
-        for (size_type i = 0; i < _size; ++i)
-            newArg[i] = _arg[i];
-        _alloc.deallocate(_arg, _capacity);
+        for (size_type i = 0; i < _size; i++)
+            _alloc.construct(newArg + i, _arg[i]);
+        if (_capacity > 0)
+            _alloc.deallocate(_arg, _capacity);
         _arg = newArg;
         _capacity = n;
     }

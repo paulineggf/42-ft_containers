@@ -15,6 +15,7 @@ int main ()
   for (it=myvector.begin(); it<myvector.end(); it++)
     std::cout << ' ' << *it;
   std::cout << std::endl;
+  
   it = myvector.begin();
   it = myvector.insert ( it , 40 );
 

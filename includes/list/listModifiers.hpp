@@ -108,11 +108,22 @@ typename ft::list<T, Alloc>::iterator     ft::list<T, Alloc>::insert(ft::list<T,
 {
     Node  *list;
 
-    list = new Node(val, position._M_node->_M_prev, position._M_node);
-    position._M_node->_M_prev->_M_next = list;
-    position._M_node->_M_prev = list;
-    _size++;
-    position--;
+    if (position._M_node == NULL)
+    {
+        this->push_back(val);
+        position = ft::list<T, Alloc>::iterator(lastList(_list));
+    }
+    else
+    {
+        list = new Node(val, position._M_node->_M_prev, position._M_node);
+        if (position._M_node->_M_prev)
+            position._M_node->_M_prev->_M_next = list;
+        else
+            _list = list;
+        position._M_node->_M_prev = list;
+        _size++;
+        position--;
+    }
     return position;
 }
 
@@ -160,16 +171,24 @@ void            ft::list<T, Alloc>::insert(ft::list<T, Alloc>::iterator position
 {
     Node    *list;
 
-    for (; first != last; first++)
+    if (position._M_node)
     {
-        list = new Node(*first, position._M_node->_M_prev, position._M_node);
-        if (position._M_node->_M_prev)
-            position._M_node->_M_prev->_M_next = list;
-        else
-            _list = list;
-        position._M_node->_M_prev = list;
-        position._M_node = list->_M_next;
-        _size++;
+        for (; first != last; first++)
+        {
+            list = new Node(*first, position._M_node->_M_prev, position._M_node);
+            if (position._M_node->_M_prev)
+                position._M_node->_M_prev->_M_next = list;
+            else
+                _list = list;
+            position._M_node->_M_prev = list;
+            position._M_node = list->_M_next;
+            _size++;
+        }
+    }
+    else
+    {
+        for (; first != last; first++)
+            this->push_back(*first);
     }
 }
 

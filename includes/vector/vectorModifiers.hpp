@@ -5,7 +5,7 @@ template<typename T, class Alloc>
 void            ft::vector<T, Alloc>::push_back(const typename ft::vector<T, Alloc>::value_type &arg)
 {
     if (_size < _capacity)
-        _arg[_size] = arg;
+        _alloc.construct(_arg + _size, arg);
     else
     {
         T *newArg;
@@ -37,6 +37,8 @@ void                        ft::vector<T, Alloc>::pop_back()
 template<typename T, class Alloc>
 void                        ft::vector<T, Alloc>::clear()
 {
+    for (size_type i = 0; i < _size; i++)
+        _alloc.destroy(_arg + i);
     _size = 0;
 }
 
@@ -62,22 +64,25 @@ typename ft::vector<T, Alloc>::iterator     ft::vector<T, Alloc>::erase(ft::vect
     ft::vector<T, Alloc>::iterator itend;
     ft::vector<T, Alloc>::iterator ret = first;
     
-    itend = this->end();
-    end = _size - 1;
-    _size = 0;
-    for (ft::vector<T, Alloc>::iterator begin = this->begin();
-    begin != first; begin++)
-        _size++;
-    for (; last != itend; first++)
+    if (first != this->end())
     {
-        *first = *last;
-        last++;
-        _size++;
-    }
-    while (end > _size)
-    {
-        _alloc.destroy(_arg + end);
-        end--;
+        itend = this->end();
+        end = _size - 1;
+        _size = 0;
+        for (ft::vector<T, Alloc>::iterator begin = this->begin();
+        begin != first; begin++)
+            _size++;
+        for (; last != itend; first++)
+        {
+            *first = *last;
+            last++;
+            _size++;
+        }
+        while (end > _size)
+        {
+            _alloc.destroy(_arg + end);
+            end--;
+        }
     }
     return ret;
 }
@@ -86,8 +91,7 @@ template<typename T, class Alloc>
 template<class InputIterator>
 void        ft::vector<T, Alloc>::assign(InputIterator first, InputIterator last)
 {
-    this->assign(1, *first);
-    first++;
+    this->clear();
     while (first != last)
     {
         this->push_back(*first);
@@ -119,19 +123,23 @@ template<typename T, class Alloc>
 typename ft::vector<T, Alloc>::iterator     ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position,
                                             const T &val)
 {
-    size_type     i;
+    int     i;
+    ft::vector<T, Alloc> tmp(_alloc);
+    ft::vector<T, Alloc>::iterator it;
     
-    i = _size;
+    i = 0;
+    tmp.assign(position, this->end());
+    for (ft::vector<T, Alloc>::iterator it2 = tmp.begin(); it2 != tmp.end(); it2++)
+        std::cout << "*it: " << it2->first << std::endl;
+    this->erase(position, this->end());
     if (_capacity < _size + 1)
         this->reserve(_size + 1);
-    while (position + i != position)
-    {
-        *(position + i) = *(position + i - 1);
-        i--;
-    }
-    _size += 1;
-    *(position + i) = val;
-    return position;
+    this->push_back(val);
+    it = this->end();
+    it--;
+    while (i < (int)tmp.size())
+        this->push_back(tmp[i++]);
+    return it;
 }
 
 template<typename T, class Alloc>
@@ -139,20 +147,21 @@ void        ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position
             size_t n, const T& val)
 {
     int     i;
-    int     tmp;
+    ft::vector<T, Alloc> tmp;
     
-    i = _size + n - 1;
-    tmp = _size - 1;
+    i = 0;
+    tmp.assign(position, this->end());
+    this->erase(position, this->end());
     if (_capacity < _size + n)
         this->reserve(_size + n);
-    while (position + i != position + n - 1)
-        *(position + i--) = *(position + tmp--);
-    _size += n;
-    while (n > 0)
-    {      
-        *(position + i--) = val;
-        n--;
+    while (i < n)
+    {
+        this->push_back(val);
+        i++;
     }
+    i= 0;
+    while (i < (int)tmp.size())
+        this->push_back(tmp[i++]);
 }
 
 template<typename T, class Alloc>
@@ -160,20 +169,21 @@ void        ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position
             int n, int val)
 {
     int     i;
-    int     tmp;
+    ft::vector<T, Alloc> tmp;
     
-    i = _size + n - 1;
-    tmp = _size - 1;
+    i = 0;
+    tmp.assign(position, this->end());
+    this->erase(position, this->end());
     if (_capacity < _size + n)
         this->reserve(_size + n);
-    while (position + i != position + n - 1)
-        *(position + i--) = *(position + tmp--);
-    _size += n;
-    while (n > 0)
-    {      
-        *(position + i--) = val;
-        n--;
+    while (i < n)
+    {
+        this->push_back(val);
+        i++;
     }
+    i= 0;
+    while (i < (int)tmp.size())
+        this->push_back(tmp[i++]);
 }
 
 template<typename T, class Alloc>
