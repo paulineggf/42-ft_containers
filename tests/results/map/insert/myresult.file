@@ -1,4 +1,5 @@
-element 'z' already existed with a value of 200
+element 'z' already existed
+ with a value of 200
 mymap contains:
 a => 100
 b => 300

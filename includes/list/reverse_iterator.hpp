@@ -32,6 +32,8 @@ namespace ft
         reverse_iterator        operator--(int);
         typename
         iter_type::reference    operator*();
+        typename
+        iter_type::pointer      operator->();
         bool                    operator!=(const reverse_iterator &rhs);
         void                    operator=(const reverse_iterator &rhs);
         bool                    operator<(const reverse_iterator &rhs);
@@ -88,6 +90,12 @@ namespace ft
     typename iter_type::reference   ft::reverse_iterator<iter_type>::operator*()
     {
         return  *_it;
+    }
+
+    template<typename iter_type>
+    typename iter_type::pointer     ft::reverse_iterator<iter_type>::operator->()
+    {
+        return _it.operator->();
     }
     
     template<typename iter_type>

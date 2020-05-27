@@ -3,8 +3,6 @@
 
 # include <limits>
 # include <iostream>
-# include <exception>
-# include <algorithm>
 # include "reverse_iterator.hpp"
 
 namespace ft
@@ -108,6 +106,7 @@ namespace ft
             public:
             
             typedef const_reference reference;
+            typedef T*              pointer;
 
             const_reverse_iterator() : ft::reverse_iterator<iterator>() {}
             const_reverse_iterator(const iterator &it) : ft::reverse_iterator<iterator>(it) {}

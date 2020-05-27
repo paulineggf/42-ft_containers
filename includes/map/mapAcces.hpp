@@ -11,10 +11,5 @@ typename ft::map<Key, T, Compare, Alloc>::mapped_type &ft::map<Key, T, Compare, 
         it++;
     if (it != _data.end() && it->first == k)
         return it->second;
-    std::cout << p.first << std::endl;
-    iterator t = _data.insert(it, p);
-    std::cout << t->first << std::endl;
-    std::cout << t->second << std::endl;
-    return t->second;
-    // return _data.insert(it, p)->second;
+    return _data.insert(it, p)->second;
 }

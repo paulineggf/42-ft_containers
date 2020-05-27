@@ -1,0 +1,32 @@
+==22157== Memcheck, a memory error detector
+==22157== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==22157== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==22157== Command: ./mytest
+==22157== 
+==22157== Invalid read of size 8
+==22157==    at 0x401844: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
+==22157==    by 0x401798: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==22157==    by 0x401692: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::~map() (map.hpp:141)
+==22157==    by 0x400CF6: main (equal_range.cpp:24)
+==22157==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==22157==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22157==    by 0x40183F: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
+==22157==    by 0x401798: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==22157==    by 0x401692: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::~map() (map.hpp:141)
+==22157==    by 0x400CF6: main (equal_range.cpp:24)
+==22157==  Block was alloc'd at
+==22157==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==22157==    by 0x401D6E: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
+==22157==    by 0x401B20: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
+==22157==    by 0x4010F2: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
+==22157==    by 0x400A41: main (equal_range.cpp:10)
+==22157== 
+==22157== 
+==22157== HEAP SUMMARY:
+==22157==     in use at exit: 0 bytes in 0 blocks
+==22157==   total heap usage: 5 allocs, 5 frees, 80,968 bytes allocated
+==22157== 
+==22157== All heap blocks were freed -- no leaks are possible
+==22157== 
+==22157== For counts of detected and suppressed errors, rerun with: -v
+==22157== ERROR SUMMARY: 3 errors from 1 contexts (suppressed: 0 from 0)

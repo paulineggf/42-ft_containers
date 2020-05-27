@@ -129,8 +129,6 @@ typename ft::vector<T, Alloc>::iterator     ft::vector<T, Alloc>::insert(ft::vec
     
     i = 0;
     tmp.assign(position, this->end());
-    for (ft::vector<T, Alloc>::iterator it2 = tmp.begin(); it2 != tmp.end(); it2++)
-        std::cout << "*it: " << it2->first << std::endl;
     this->erase(position, this->end());
     if (_capacity < _size + 1)
         this->reserve(_size + 1);
@@ -146,7 +144,7 @@ template<typename T, class Alloc>
 void        ft::vector<T, Alloc>::insert(ft::vector<T, Alloc>::iterator position,
             size_t n, const T& val)
 {
-    int     i;
+    size_t     i;
     ft::vector<T, Alloc> tmp;
     
     i = 0;

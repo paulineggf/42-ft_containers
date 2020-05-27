@@ -1,28 +1,28 @@
-==2648== Memcheck, a memory error detector
-==2648== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2648== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==2648== Command: ./mytest
-==2648== 
-==2648== Invalid read of size 8
-==2648==    at 0x401164: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==2648==    by 0x401058: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==2648==    by 0x400BEA: main (reverse.cpp:21)
-==2648==  Address 0x5b7df90 is 16 bytes inside a block of size 24 free'd
-==2648==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2648==    by 0x40115F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==2648==    by 0x401058: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==2648==    by 0x400BEA: main (reverse.cpp:21)
-==2648==  Block was alloc'd at
-==2648==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2648==    by 0x400D52: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:11)
-==2648==    by 0x400A4A: main (reverse.cpp:10)
-==2648== 
-==2648== 
-==2648== HEAP SUMMARY:
-==2648==     in use at exit: 0 bytes in 0 blocks
-==2648==   total heap usage: 11 allocs, 11 frees, 81,112 bytes allocated
-==2648== 
-==2648== All heap blocks were freed -- no leaks are possible
-==2648== 
-==2648== For counts of detected and suppressed errors, rerun with: -v
-==2648== ERROR SUMMARY: 9 errors from 1 contexts (suppressed: 0 from 0)
+==21781== Memcheck, a memory error detector
+==21781== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==21781== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==21781== Command: ./mytest
+==21781== 
+==21781== Invalid read of size 8
+==21781==    at 0x401164: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==21781==    by 0x401058: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==21781==    by 0x400BEA: main (reverse.cpp:21)
+==21781==  Address 0x5b7df90 is 16 bytes inside a block of size 24 free'd
+==21781==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==21781==    by 0x40115F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==21781==    by 0x401058: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==21781==    by 0x400BEA: main (reverse.cpp:21)
+==21781==  Block was alloc'd at
+==21781==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==21781==    by 0x400D52: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:11)
+==21781==    by 0x400A4A: main (reverse.cpp:10)
+==21781== 
+==21781== 
+==21781== HEAP SUMMARY:
+==21781==     in use at exit: 0 bytes in 0 blocks
+==21781==   total heap usage: 11 allocs, 11 frees, 81,112 bytes allocated
+==21781== 
+==21781== All heap blocks were freed -- no leaks are possible
+==21781== 
+==21781== For counts of detected and suppressed errors, rerun with: -v
+==21781== ERROR SUMMARY: 9 errors from 1 contexts (suppressed: 0 from 0)

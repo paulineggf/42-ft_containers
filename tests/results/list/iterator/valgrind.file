@@ -1,56 +1,56 @@
-==2099== Memcheck, a memory error detector
-==2099== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2099== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==2099== Command: ./mytest
-==2099== 
-==2099== Invalid read of size 8
-==2099==    at 0x402F64: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==2099==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==2099==    by 0x401F0F: main (iterator.cpp:103)
-==2099==  Address 0x5b80030 is 16 bytes inside a block of size 24 free'd
-==2099==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2099==    by 0x402F5F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==2099==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==2099==    by 0x401F0F: main (iterator.cpp:103)
-==2099==  Block was alloc'd at
-==2099==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2099==    by 0x40249E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==2099==    by 0x40157E: main (iterator.cpp:58)
-==2099== 
-==2099== Invalid read of size 8
-==2099==    at 0x402F64: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==2099==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==2099==    by 0x401F36: main (iterator.cpp:103)
-==2099==  Address 0x5b7fe50 is 16 bytes inside a block of size 24 free'd
-==2099==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2099==    by 0x402F5F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==2099==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==2099==    by 0x401F36: main (iterator.cpp:103)
-==2099==  Block was alloc'd at
-==2099==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2099==    by 0x40249E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==2099==    by 0x4014D4: main (iterator.cpp:51)
-==2099== 
-==2099== Invalid read of size 8
-==2099==    at 0x402C74: ft::list<Player, std::allocator<Player> >::clear() (listModifiers.hpp:100)
-==2099==    by 0x402B68: ft::list<Player, std::allocator<Player> >::~list() (listInit.hpp:41)
-==2099==    by 0x401F8F: main (iterator.cpp:103)
-==2099==  Address 0x5b7dcb0 is 48 bytes inside a block of size 56 free'd
-==2099==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2099==    by 0x402C6F: ft::list<Player, std::allocator<Player> >::clear() (listModifiers.hpp:99)
-==2099==    by 0x402B68: ft::list<Player, std::allocator<Player> >::~list() (listInit.hpp:41)
-==2099==    by 0x401F8F: main (iterator.cpp:103)
-==2099==  Block was alloc'd at
-==2099==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2099==    by 0x40209E: ft::list<Player, std::allocator<Player> >::push_back(Player const&) (listModifiers.hpp:7)
-==2099==    by 0x400E45: main (iterator.cpp:25)
-==2099== 
-==2099== 
-==2099== HEAP SUMMARY:
-==2099==     in use at exit: 0 bytes in 0 blocks
-==2099==   total heap usage: 12 allocs, 12 frees, 81,232 bytes allocated
-==2099== 
-==2099== All heap blocks were freed -- no leaks are possible
-==2099== 
-==2099== For counts of detected and suppressed errors, rerun with: -v
-==2099== ERROR SUMMARY: 10 errors from 3 contexts (suppressed: 0 from 0)
+==25276== Memcheck, a memory error detector
+==25276== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25276== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==25276== Command: ./mytest
+==25276== 
+==25276== Invalid read of size 8
+==25276==    at 0x402F64: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==25276==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==25276==    by 0x401F0F: main (iterator.cpp:103)
+==25276==  Address 0x5b80030 is 16 bytes inside a block of size 24 free'd
+==25276==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25276==    by 0x402F5F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==25276==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==25276==    by 0x401F0F: main (iterator.cpp:103)
+==25276==  Block was alloc'd at
+==25276==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25276==    by 0x40249E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==25276==    by 0x40157E: main (iterator.cpp:58)
+==25276== 
+==25276== Invalid read of size 8
+==25276==    at 0x402F64: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
+==25276==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==25276==    by 0x401F36: main (iterator.cpp:103)
+==25276==  Address 0x5b7fe50 is 16 bytes inside a block of size 24 free'd
+==25276==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25276==    by 0x402F5F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
+==25276==    by 0x402B18: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
+==25276==    by 0x401F36: main (iterator.cpp:103)
+==25276==  Block was alloc'd at
+==25276==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25276==    by 0x40249E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==25276==    by 0x4014D4: main (iterator.cpp:51)
+==25276== 
+==25276== Invalid read of size 8
+==25276==    at 0x402C74: ft::list<Player, std::allocator<Player> >::clear() (listModifiers.hpp:100)
+==25276==    by 0x402B68: ft::list<Player, std::allocator<Player> >::~list() (listInit.hpp:41)
+==25276==    by 0x401F8F: main (iterator.cpp:103)
+==25276==  Address 0x5b7dcb0 is 48 bytes inside a block of size 56 free'd
+==25276==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25276==    by 0x402C6F: ft::list<Player, std::allocator<Player> >::clear() (listModifiers.hpp:99)
+==25276==    by 0x402B68: ft::list<Player, std::allocator<Player> >::~list() (listInit.hpp:41)
+==25276==    by 0x401F8F: main (iterator.cpp:103)
+==25276==  Block was alloc'd at
+==25276==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25276==    by 0x40209E: ft::list<Player, std::allocator<Player> >::push_back(Player const&) (listModifiers.hpp:7)
+==25276==    by 0x400E45: main (iterator.cpp:25)
+==25276== 
+==25276== 
+==25276== HEAP SUMMARY:
+==25276==     in use at exit: 0 bytes in 0 blocks
+==25276==   total heap usage: 12 allocs, 12 frees, 81,232 bytes allocated
+==25276== 
+==25276== All heap blocks were freed -- no leaks are possible
+==25276== 
+==25276== For counts of detected and suppressed errors, rerun with: -v
+==25276== ERROR SUMMARY: 10 errors from 3 contexts (suppressed: 0 from 0)

@@ -1,11 +1,8 @@
 #ifndef STACK_HPP
 # define STACK_HPP
 
-// # include <limits>
-# include <deque>
 # include <iostream>
-// # include <exception>
-// # include <algorithm>
+# include <deque>
 
 namespace ft
 {
@@ -25,6 +22,7 @@ namespace ft
         // ARGUMENTS
 
         container_type _container;
+        
         public:
 
         // MEMBER FUNCTIONS

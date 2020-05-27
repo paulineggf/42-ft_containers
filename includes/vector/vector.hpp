@@ -99,7 +99,6 @@ namespace ft
             const_iterator() {}
             const_iterator(pointer arg, int idx) : iterator(arg, idx) {}
             const_iterator(iterator it) : iterator(it) {}
-            // const_iterator(const pointer arg, int idx) : iterator(arg, idx) {}
             ~const_iterator() {}
         };
 
@@ -110,6 +109,7 @@ namespace ft
             public:
             
             typedef const_reference reference;
+            typedef T*              pointer;
 
             const_reverse_iterator() : ft::reverse_iterator<iterator>() {}
             const_reverse_iterator(const iterator &it) : ft::reverse_iterator<iterator>(it) {}

@@ -14,8 +14,9 @@ vectorSelect="1"
 listSelect="2"
 stackSelect="3"
 mapSelect="4"
-all="5"
-exit="6"
+queueSelect="5"
+all="6"
+exit="7"
 
 # Set your absolute INCLUDES path directory below
 includes="/home/pauline/CPP/ft_containers/includes"
@@ -32,8 +33,9 @@ while true; do
             -2 List
             -3 Stack
             -4 Map
-            -5 All
-            -6 Exit"
+            -5 Queue
+            -6 All
+            -7 Exit"
 
     read selection
 
@@ -67,9 +69,13 @@ while true; do
     declare -a stack=(  "constructor"   "size"          "pop"       "push"
                         "top"           "empty"         "relational_operators")                        
 
-    declare -a map=(    "clear" "constructor"   "value_comp"    "begin"     "empty"
+    declare -a map=(    "constructor"   "value_comp"    "begin"     "empty"
                         "erase"         "find"          "size"      "max_size"
-                        "insert"        "swap")
+                        "insert"        "swap"          "clear"     "count"
+                        "lower_bound"   "upper_bound"   "equal_range")
+
+    declare -a queue=(  "constructor"   "back"          "empty"     "front"
+                        "pop"           "push"          "size"      "relational_operators")
 
     tab=()
     if [[ "$selection" == "$vectorSelect" || "$selection" == "$all" ]]; then
@@ -83,6 +89,9 @@ while true; do
     fi
     if [[ "$selection" == "$mapSelect" || "$selection" == "$all" ]]; then
         tab[map]+="${map[@]}"
+    fi
+    if [[ "$selection" == "$queueSelect" || "$selection" == "$all" ]]; then
+        tab[queue]+="${queue[@]}"
     fi
 
     for subdir in ${!tab[@]}; do

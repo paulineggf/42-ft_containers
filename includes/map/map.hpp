@@ -2,7 +2,7 @@
 # define MAP_HPP
 
 # include <iostream>
-# include "../vector/vector.hpp"
+# include "../list/list.hpp"
 
 namespace ft
 {
@@ -11,13 +11,13 @@ namespace ft
     {
         public:
 
-        const Key   first;
+        Key         first;
         T           second;
 
         pair() {}
         pair(Key key, T data) : first(key), second(data) {}
         pair &operator=(const pair &x) {
-                // first = x.first;
+                first = x.first;
                 second = x.second;
                 return *this; }
         ~pair() {}
@@ -48,7 +48,7 @@ namespace ft
 
         key_compare         _comp;
         allocator_type      _alloc;
-        ft::vector<value_type, allocator_type>
+        ft::list<value_type, allocator_type>
                             _data;
 
         public:
@@ -80,13 +80,13 @@ namespace ft
 
         // ITERATOR
 
-        typedef typename ft::vector<value_type, allocator_type>::iterator
+        typedef typename ft::list<value_type, allocator_type>::iterator
                                 iterator;
-        typedef typename ft::vector<value_type, allocator_type>::const_iterator
+        typedef typename ft::list<value_type, allocator_type>::const_iterator
                                 const_iterator;
-        typedef typename ft::vector<value_type, allocator_type>::reverse_iterator
+        typedef typename ft::list<value_type, allocator_type>::reverse_iterator
                                 reverse_iterator;                        
-        typedef typename ft::vector<value_type, allocator_type>::const_reverse_iterator
+        typedef typename ft::list<value_type, allocator_type>::const_reverse_iterator
                                 const_reverse_iterator; 
 
         iterator                  begin()
@@ -167,12 +167,22 @@ namespace ft
 
         // OBSERVERS
 
+        key_compare     key_comp() const;
         value_compare   value_comp() const;
 
         // OPERATIONS
 
         iterator        find(const key_type &k);
         const_iterator  find(const key_type &k) const;
+        size_type       count(const key_type &k) const;
+        iterator        lower_bound(const key_type &k);
+        const_iterator  lower_bound(const key_type &k) const;
+        iterator        upper_bound(const key_type &k);
+        const_iterator  upper_bound(const key_type &k) const;
+        ft::pair<const_iterator, const_iterator>
+                        equal_range(const key_type &k) const;
+        ft::pair<iterator, iterator>
+                        equal_range(const key_type &k);
     };
 
     # include "mapInit.hpp"
