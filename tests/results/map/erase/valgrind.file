@@ -1,49 +1,49 @@
-==21937== Memcheck, a memory error detector
-==21937== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==21937== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==21937== Command: ./mytest
-==21937== 
-==21937== Invalid read of size 8
-==21937==    at 0x401A01: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::iterator::operator++() (listIterators.hpp:34)
-==21937==    by 0x401DC3: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::iterator::operator++(int) (listIterators.hpp:26)
-==21937==    by 0x4017ED: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::erase(char const&) (mapModifiers.hpp:16)
-==21937==    by 0x400BBD: main (erase.cpp:22)
-==21937==  Address 0x5b7dd50 is 16 bytes inside a block of size 24 free'd
-==21937==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21937==    by 0x402358: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::erase(ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:215)
-==21937==    by 0x40178B: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::erase(char const&) (mapModifiers.hpp:20)
-==21937==    by 0x400BBD: main (erase.cpp:22)
-==21937==  Block was alloc'd at
-==21937==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21937==    by 0x4020B2: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:11)
-==21937==    by 0x401E70: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
-==21937==    by 0x401302: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
-==21937==    by 0x400AA9: main (erase.cpp:14)
-==21937== 
-==21937== Invalid read of size 8
-==21937==    at 0x401BE4: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
-==21937==    by 0x401B38: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==21937==    by 0x401A32: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::~map() (map.hpp:141)
-==21937==    by 0x400EF4: main (erase.cpp:32)
-==21937==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
-==21937==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21937==    by 0x401BDF: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
-==21937==    by 0x401B38: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==21937==    by 0x401A32: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::~map() (map.hpp:141)
-==21937==    by 0x400EF4: main (erase.cpp:32)
-==21937==  Block was alloc'd at
-==21937==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21937==    by 0x40204E: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
-==21937==    by 0x401E70: ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, std::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
-==21937==    by 0x401302: ft::map<char, int, std::less<char>, std::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
-==21937==    by 0x400A55: main (erase.cpp:12)
-==21937== 
-==21937== 
-==21937== HEAP SUMMARY:
-==21937==     in use at exit: 0 bytes in 0 blocks
-==21937==   total heap usage: 8 allocs, 8 frees, 81,040 bytes allocated
-==21937== 
-==21937== All heap blocks were freed -- no leaks are possible
-==21937== 
-==21937== For counts of detected and suppressed errors, rerun with: -v
-==21937== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)
+==31222== Memcheck, a memory error detector
+==31222== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==31222== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==31222== Command: ./mytest
+==31222== 
+==31222== Invalid read of size 8
+==31222==    at 0x401A31: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator::operator++() (listIterators.hpp:34)
+==31222==    by 0x401DD3: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator::operator++(int) (listIterators.hpp:26)
+==31222==    by 0x40181D: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::erase(char const&) (mapModifiers.hpp:16)
+==31222==    by 0x400BBD: main (erase.cpp:22)
+==31222==  Address 0x5b7dd50 is 16 bytes inside a block of size 24 free'd
+==31222==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31222==    by 0x402368: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::erase(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:215)
+==31222==    by 0x4017BB: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::erase(char const&) (mapModifiers.hpp:20)
+==31222==    by 0x400BBD: main (erase.cpp:22)
+==31222==  Block was alloc'd at
+==31222==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31222==    by 0x4020C2: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:11)
+==31222==    by 0x401E80: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
+==31222==    by 0x401342: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
+==31222==    by 0x400AA9: main (erase.cpp:14)
+==31222== 
+==31222== Invalid read of size 8
+==31222==    at 0x401BF4: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
+==31222==    by 0x401B38: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==31222==    by 0x401A62: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
+==31222==    by 0x400EF9: main (erase.cpp:32)
+==31222==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==31222==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31222==    by 0x401BEF: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
+==31222==    by 0x401B38: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==31222==    by 0x401A62: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
+==31222==    by 0x400EF9: main (erase.cpp:32)
+==31222==  Block was alloc'd at
+==31222==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31222==    by 0x40205E: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
+==31222==    by 0x401E80: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
+==31222==    by 0x401342: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
+==31222==    by 0x400A55: main (erase.cpp:12)
+==31222== 
+==31222== 
+==31222== HEAP SUMMARY:
+==31222==     in use at exit: 0 bytes in 0 blocks
+==31222==   total heap usage: 8 allocs, 8 frees, 81,040 bytes allocated
+==31222== 
+==31222== All heap blocks were freed -- no leaks are possible
+==31222== 
+==31222== For counts of detected and suppressed errors, rerun with: -v
+==31222== ERROR SUMMARY: 3 errors from 2 contexts (suppressed: 0 from 0)

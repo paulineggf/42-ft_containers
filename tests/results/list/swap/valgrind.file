@@ -1,100 +1,100 @@
-==21613== Memcheck, a memory error detector
-==21613== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==21613== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==21613== Command: ./mytest
-==21613== 
-==21613== Invalid read of size 8
-==21613==    at 0x401494: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==21613==    by 0x401720: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:65)
-==21613==    by 0x400FAD: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:247)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
-==21613==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40148F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==21613==    by 0x401720: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:65)
-==21613==    by 0x400FAD: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:247)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613==  Block was alloc'd at
-==21613==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40150E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==21613==    by 0x4013EE: ft::list<int, std::allocator<int> >::assign(int, int) (listModifiers.hpp:86)
-==21613==    by 0x400E8B: ft::list<int, std::allocator<int> >::list<int>(int, int, std::allocator<int> const&) (listInit.hpp:27)
-==21613==    by 0x400A2E: main (swap.cpp:8)
-==21613== 
-==21613== Invalid read of size 8
-==21613==    at 0x401494: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==21613==    by 0x401720: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:65)
-==21613==    by 0x401014: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:248)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613==  Address 0x5b7ddb0 is 16 bytes inside a block of size 24 free'd
-==21613==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40148F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==21613==    by 0x401720: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:65)
-==21613==    by 0x401014: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:248)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613==  Block was alloc'd at
-==21613==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40150E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==21613==    by 0x4013EE: ft::list<int, std::allocator<int> >::assign(int, int) (listModifiers.hpp:86)
-==21613==    by 0x400E8B: ft::list<int, std::allocator<int> >::list<int>(int, int, std::allocator<int> const&) (listInit.hpp:27)
-==21613==    by 0x400A66: main (swap.cpp:9)
-==21613== 
-==21613== Invalid read of size 8
-==21613==    at 0x401494: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==21613==    by 0x401328: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==21613==    by 0x40103E: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:249)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613==  Address 0x5b7df90 is 16 bytes inside a block of size 24 free'd
-==21613==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40148F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==21613==    by 0x401328: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==21613==    by 0x40103E: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:249)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613==  Block was alloc'd at
-==21613==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40150E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==21613==    by 0x40174F: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:68)
-==21613==    by 0x400F57: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:246)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613== 
-==21613== Invalid read of size 8
-==21613==    at 0x401494: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==21613==    by 0x401328: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==21613==    by 0x400DB2: main (swap.cpp:24)
-==21613==  Address 0x5b7e290 is 16 bytes inside a block of size 24 free'd
-==21613==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40148F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==21613==    by 0x401328: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==21613==    by 0x400DB2: main (swap.cpp:24)
-==21613==  Block was alloc'd at
-==21613==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40150E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==21613==    by 0x40174F: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:68)
-==21613==    by 0x401014: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:248)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613== 
-==21613== Invalid read of size 8
-==21613==    at 0x401494: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:100)
-==21613==    by 0x401328: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==21613==    by 0x400DC0: main (swap.cpp:24)
-==21613==  Address 0x5b7e0b0 is 16 bytes inside a block of size 24 free'd
-==21613==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40148F: ft::list<int, std::allocator<int> >::clear() (listModifiers.hpp:99)
-==21613==    by 0x401328: ft::list<int, std::allocator<int> >::~list() (listInit.hpp:41)
-==21613==    by 0x400DC0: main (swap.cpp:24)
-==21613==  Block was alloc'd at
-==21613==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21613==    by 0x40150E: ft::list<int, std::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
-==21613==    by 0x40174F: void ft::list<int, std::allocator<int> >::assign<ft::list<int, std::allocator<int> >::iterator>(ft::list<int, std::allocator<int> >::iterator, ft::list<int, std::allocator<int> >::iterator) (listModifiers.hpp:68)
-==21613==    by 0x400FAD: ft::list<int, std::allocator<int> >::swap(ft::list<int, std::allocator<int> >&) (listModifiers.hpp:247)
-==21613==    by 0x400A81: main (swap.cpp:11)
-==21613== 
-==21613== 
-==21613== HEAP SUMMARY:
-==21613==     in use at exit: 0 bytes in 0 blocks
-==21613==   total heap usage: 21 allocs, 21 frees, 81,352 bytes allocated
-==21613== 
-==21613== All heap blocks were freed -- no leaks are possible
-==21613== 
-==21613== For counts of detected and suppressed errors, rerun with: -v
-==21613== ERROR SUMMARY: 19 errors from 5 contexts (suppressed: 0 from 0)
+==30855== Memcheck, a memory error detector
+==30855== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==30855== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==30855== Command: ./mytest
+==30855== 
+==30855== Invalid read of size 8
+==30855==    at 0x401464: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:100)
+==30855==    by 0x4016F0: void ft::list<int, ft::allocator<int> >::assign<ft::list<int, ft::allocator<int> >::iterator>(ft::list<int, ft::allocator<int> >::iterator, ft::list<int, ft::allocator<int> >::iterator) (listModifiers.hpp:65)
+==30855==    by 0x400FBD: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:247)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==30855==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x40145F: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:99)
+==30855==    by 0x4016F0: void ft::list<int, ft::allocator<int> >::assign<ft::list<int, ft::allocator<int> >::iterator>(ft::list<int, ft::allocator<int> >::iterator, ft::list<int, ft::allocator<int> >::iterator) (listModifiers.hpp:65)
+==30855==    by 0x400FBD: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:247)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855==  Block was alloc'd at
+==30855==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x4014DE: ft::list<int, ft::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==30855==    by 0x4013CE: ft::list<int, ft::allocator<int> >::assign(int, int) (listModifiers.hpp:86)
+==30855==    by 0x400E8B: ft::list<int, ft::allocator<int> >::list<int>(int, int, ft::allocator<int> const&) (listInit.hpp:27)
+==30855==    by 0x400A2E: main (swap.cpp:8)
+==30855== 
+==30855== Invalid read of size 8
+==30855==    at 0x401464: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:100)
+==30855==    by 0x4016F0: void ft::list<int, ft::allocator<int> >::assign<ft::list<int, ft::allocator<int> >::iterator>(ft::list<int, ft::allocator<int> >::iterator, ft::list<int, ft::allocator<int> >::iterator) (listModifiers.hpp:65)
+==30855==    by 0x401024: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:248)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855==  Address 0x5b7ddb0 is 16 bytes inside a block of size 24 free'd
+==30855==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x40145F: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:99)
+==30855==    by 0x4016F0: void ft::list<int, ft::allocator<int> >::assign<ft::list<int, ft::allocator<int> >::iterator>(ft::list<int, ft::allocator<int> >::iterator, ft::list<int, ft::allocator<int> >::iterator) (listModifiers.hpp:65)
+==30855==    by 0x401024: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:248)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855==  Block was alloc'd at
+==30855==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x4014DE: ft::list<int, ft::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==30855==    by 0x4013CE: ft::list<int, ft::allocator<int> >::assign(int, int) (listModifiers.hpp:86)
+==30855==    by 0x400E8B: ft::list<int, ft::allocator<int> >::list<int>(int, int, ft::allocator<int> const&) (listInit.hpp:27)
+==30855==    by 0x400A61: main (swap.cpp:9)
+==30855== 
+==30855== Invalid read of size 8
+==30855==    at 0x401464: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:100)
+==30855==    by 0x401338: ft::list<int, ft::allocator<int> >::~list() (listInit.hpp:41)
+==30855==    by 0x40104E: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:249)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855==  Address 0x5b7df90 is 16 bytes inside a block of size 24 free'd
+==30855==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x40145F: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:99)
+==30855==    by 0x401338: ft::list<int, ft::allocator<int> >::~list() (listInit.hpp:41)
+==30855==    by 0x40104E: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:249)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855==  Block was alloc'd at
+==30855==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x4014DE: ft::list<int, ft::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==30855==    by 0x40171F: void ft::list<int, ft::allocator<int> >::assign<ft::list<int, ft::allocator<int> >::iterator>(ft::list<int, ft::allocator<int> >::iterator, ft::list<int, ft::allocator<int> >::iterator) (listModifiers.hpp:68)
+==30855==    by 0x400F67: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:246)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855== 
+==30855== Invalid read of size 8
+==30855==    at 0x401464: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:100)
+==30855==    by 0x401338: ft::list<int, ft::allocator<int> >::~list() (listInit.hpp:41)
+==30855==    by 0x400DCA: main (swap.cpp:24)
+==30855==  Address 0x5b7e290 is 16 bytes inside a block of size 24 free'd
+==30855==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x40145F: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:99)
+==30855==    by 0x401338: ft::list<int, ft::allocator<int> >::~list() (listInit.hpp:41)
+==30855==    by 0x400DCA: main (swap.cpp:24)
+==30855==  Block was alloc'd at
+==30855==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x4014DE: ft::list<int, ft::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==30855==    by 0x40171F: void ft::list<int, ft::allocator<int> >::assign<ft::list<int, ft::allocator<int> >::iterator>(ft::list<int, ft::allocator<int> >::iterator, ft::list<int, ft::allocator<int> >::iterator) (listModifiers.hpp:68)
+==30855==    by 0x401024: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:248)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855== 
+==30855== Invalid read of size 8
+==30855==    at 0x401464: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:100)
+==30855==    by 0x401338: ft::list<int, ft::allocator<int> >::~list() (listInit.hpp:41)
+==30855==    by 0x400DD8: main (swap.cpp:24)
+==30855==  Address 0x5b7e0b0 is 16 bytes inside a block of size 24 free'd
+==30855==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x40145F: ft::list<int, ft::allocator<int> >::clear() (listModifiers.hpp:99)
+==30855==    by 0x401338: ft::list<int, ft::allocator<int> >::~list() (listInit.hpp:41)
+==30855==    by 0x400DD8: main (swap.cpp:24)
+==30855==  Block was alloc'd at
+==30855==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30855==    by 0x4014DE: ft::list<int, ft::allocator<int> >::push_back(int const&) (listModifiers.hpp:7)
+==30855==    by 0x40171F: void ft::list<int, ft::allocator<int> >::assign<ft::list<int, ft::allocator<int> >::iterator>(ft::list<int, ft::allocator<int> >::iterator, ft::list<int, ft::allocator<int> >::iterator) (listModifiers.hpp:68)
+==30855==    by 0x400FBD: ft::list<int, ft::allocator<int> >::swap(ft::list<int, ft::allocator<int> >&) (listModifiers.hpp:247)
+==30855==    by 0x400A81: main (swap.cpp:11)
+==30855== 
+==30855== 
+==30855== HEAP SUMMARY:
+==30855==     in use at exit: 0 bytes in 0 blocks
+==30855==   total heap usage: 21 allocs, 21 frees, 81,352 bytes allocated
+==30855== 
+==30855== All heap blocks were freed -- no leaks are possible
+==30855== 
+==30855== For counts of detected and suppressed errors, rerun with: -v
+==30855== ERROR SUMMARY: 19 errors from 5 contexts (suppressed: 0 from 0)

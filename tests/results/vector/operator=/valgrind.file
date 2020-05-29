@@ -1,32 +1,32 @@
-==22349== Memcheck, a memory error detector
-==22349== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==22349== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==22349== Command: ./mytest
-==22349== 
-==22349== Invalid free() / delete / delete[] / realloc()
-==22349==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==22349==    by 0x4019FF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
-==22349==    by 0x40159B: ft::vector<int, std::allocator<int> >::~vector() (vectorInit.hpp:50)
-==22349==    by 0x401214: main (operator=.cpp:25)
-==22349==  Address 0x5b7dc80 is 0 bytes inside a block of size 12 free'd
-==22349==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==22349==    by 0x4019FF: __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) (new_allocator.h:125)
-==22349==    by 0x40140B: ft::vector<int, std::allocator<int> >::operator=(ft::vector<int, std::allocator<int> > const&) (vectorOperators.hpp:10)
-==22349==    by 0x400D8B: main (operator=.cpp:11)
-==22349==  Block was alloc'd at
-==22349==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==22349==    by 0x4019B6: __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) (new_allocator.h:111)
-==22349==    by 0x4018B9: ft::vector<int, std::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:50)
-==22349==    by 0x401827: ft::vector<int, std::allocator<int> >::assign(int, int) (vectorModifiers.hpp:116)
-==22349==    by 0x401333: ft::vector<int, std::allocator<int> >::vector<int>(int, int, std::allocator<int> const&) (vectorInit.hpp:32)
-==22349==    by 0x400CEE: main (operator=.cpp:7)
-==22349== 
-==22349== 
-==22349== HEAP SUMMARY:
-==22349==     in use at exit: 0 bytes in 0 blocks
-==22349==   total heap usage: 4 allocs, 5 frees, 80,928 bytes allocated
-==22349== 
-==22349== All heap blocks were freed -- no leaks are possible
-==22349== 
-==22349== For counts of detected and suppressed errors, rerun with: -v
-==22349== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==31721== Memcheck, a memory error detector
+==31721== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==31721== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==31721== Command: ./mytest
+==31721== 
+==31721== Invalid free() / delete / delete[] / realloc()
+==31721==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31721==    by 0x40192F: ft::allocator<int>::deallocate(int*, unsigned long) (allocator.hpp:42)
+==31721==    by 0x40155B: ft::vector<int, ft::allocator<int> >::~vector() (vectorInit.hpp:50)
+==31721==    by 0x4011D1: main (operator=.cpp:25)
+==31721==  Address 0x5b7dc80 is 0 bytes inside a block of size 12 free'd
+==31721==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31721==    by 0x40192F: ft::allocator<int>::deallocate(int*, unsigned long) (allocator.hpp:42)
+==31721==    by 0x4013C3: ft::vector<int, ft::allocator<int> >::operator=(ft::vector<int, ft::allocator<int> > const&) (vectorOperators.hpp:10)
+==31721==    by 0x400D26: main (operator=.cpp:11)
+==31721==  Block was alloc'd at
+==31721==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31721==    by 0x4018E3: ft::allocator<int>::allocate(unsigned long, void const*) (allocator.hpp:39)
+==31721==    by 0x401826: ft::vector<int, ft::allocator<int> >::reserve(unsigned long) (vectorCapacity.hpp:50)
+==31721==    by 0x4017A7: ft::vector<int, ft::allocator<int> >::assign(int, int) (vectorModifiers.hpp:116)
+==31721==    by 0x4012D3: ft::vector<int, ft::allocator<int> >::vector<int>(int, int, ft::allocator<int> const&) (vectorInit.hpp:32)
+==31721==    by 0x400C8E: main (operator=.cpp:7)
+==31721== 
+==31721== 
+==31721== HEAP SUMMARY:
+==31721==     in use at exit: 0 bytes in 0 blocks
+==31721==   total heap usage: 4 allocs, 5 frees, 80,928 bytes allocated
+==31721== 
+==31721== All heap blocks were freed -- no leaks are possible
+==31721== 
+==31721== For counts of detected and suppressed errors, rerun with: -v
+==31721== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

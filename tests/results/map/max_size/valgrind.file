@@ -1,32 +1,32 @@
-==21996== Memcheck, a memory error detector
-==21996== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==21996== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==21996== Command: ./mytest
-==21996== 
-==21996== Invalid read of size 8
-==21996==    at 0x401114: ft::list<ft::pair<int, int>, std::allocator<ft::pair<int, int> > >::clear() (listModifiers.hpp:100)
-==21996==    by 0x401068: ft::list<ft::pair<int, int>, std::allocator<ft::pair<int, int> > >::~list() (listInit.hpp:41)
-==21996==    by 0x400F52: ft::map<int, int, std::less<int>, std::allocator<ft::pair<int, int> > >::~map() (map.hpp:141)
-==21996==    by 0x400A54: main (max_size.cpp:19)
-==21996==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
-==21996==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21996==    by 0x40110F: ft::list<ft::pair<int, int>, std::allocator<ft::pair<int, int> > >::clear() (listModifiers.hpp:99)
-==21996==    by 0x401068: ft::list<ft::pair<int, int>, std::allocator<ft::pair<int, int> > >::~list() (listInit.hpp:41)
-==21996==    by 0x400F52: ft::map<int, int, std::less<int>, std::allocator<ft::pair<int, int> > >::~map() (map.hpp:141)
-==21996==    by 0x400A54: main (max_size.cpp:19)
-==21996==  Block was alloc'd at
-==21996==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21996==    by 0x40168E: ft::list<ft::pair<int, int>, std::allocator<ft::pair<int, int> > >::push_back(ft::pair<int, int> const&) (listModifiers.hpp:7)
-==21996==    by 0x401440: ft::list<ft::pair<int, int>, std::allocator<ft::pair<int, int> > >::insert(ft::list<ft::pair<int, int>, std::allocator<ft::pair<int, int> > >::iterator, ft::pair<int, int> const&) (listModifiers.hpp:113)
-==21996==    by 0x400E3D: ft::map<int, int, std::less<int>, std::allocator<ft::pair<int, int> > >::operator[](int const&) (mapAcces.hpp:14)
-==21996==    by 0x4009B3: main (max_size.cpp:13)
-==21996== 
-==21996== 
-==21996== HEAP SUMMARY:
-==21996==     in use at exit: 0 bytes in 0 blocks
-==21996==   total heap usage: 1,002 allocs, 1,002 frees, 104,896 bytes allocated
-==21996== 
-==21996== All heap blocks were freed -- no leaks are possible
-==21996== 
-==21996== For counts of detected and suppressed errors, rerun with: -v
-==21996== ERROR SUMMARY: 1000 errors from 1 contexts (suppressed: 0 from 0)
+==31291== Memcheck, a memory error detector
+==31291== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==31291== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==31291== Command: ./mytest
+==31291== 
+==31291== Invalid read of size 8
+==31291==    at 0x401124: ft::list<ft::pair<int, int>, ft::allocator<ft::pair<int, int> > >::clear() (listModifiers.hpp:100)
+==31291==    by 0x401068: ft::list<ft::pair<int, int>, ft::allocator<ft::pair<int, int> > >::~list() (listInit.hpp:41)
+==31291==    by 0x400F92: ft::map<int, int, ft::less<int>, ft::allocator<ft::pair<int, int> > >::~map() (map.hpp:128)
+==31291==    by 0x400A59: main (max_size.cpp:19)
+==31291==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==31291==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31291==    by 0x40111F: ft::list<ft::pair<int, int>, ft::allocator<ft::pair<int, int> > >::clear() (listModifiers.hpp:99)
+==31291==    by 0x401068: ft::list<ft::pair<int, int>, ft::allocator<ft::pair<int, int> > >::~list() (listInit.hpp:41)
+==31291==    by 0x400F92: ft::map<int, int, ft::less<int>, ft::allocator<ft::pair<int, int> > >::~map() (map.hpp:128)
+==31291==    by 0x400A59: main (max_size.cpp:19)
+==31291==  Block was alloc'd at
+==31291==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==31291==    by 0x40169E: ft::list<ft::pair<int, int>, ft::allocator<ft::pair<int, int> > >::push_back(ft::pair<int, int> const&) (listModifiers.hpp:7)
+==31291==    by 0x401450: ft::list<ft::pair<int, int>, ft::allocator<ft::pair<int, int> > >::insert(ft::list<ft::pair<int, int>, ft::allocator<ft::pair<int, int> > >::iterator, ft::pair<int, int> const&) (listModifiers.hpp:113)
+==31291==    by 0x400E7D: ft::map<int, int, ft::less<int>, ft::allocator<ft::pair<int, int> > >::operator[](int const&) (mapAcces.hpp:14)
+==31291==    by 0x4009B3: main (max_size.cpp:13)
+==31291== 
+==31291== 
+==31291== HEAP SUMMARY:
+==31291==     in use at exit: 0 bytes in 0 blocks
+==31291==   total heap usage: 1,002 allocs, 1,002 frees, 104,896 bytes allocated
+==31291== 
+==31291== All heap blocks were freed -- no leaks are possible
+==31291== 
+==31291== For counts of detected and suppressed errors, rerun with: -v
+==31291== ERROR SUMMARY: 1000 errors from 1 contexts (suppressed: 0 from 0)

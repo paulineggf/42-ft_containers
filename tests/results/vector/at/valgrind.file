@@ -1,14 +1,29 @@
-==22613== Memcheck, a memory error detector
-==22613== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==22613== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==22613== Command: ./mytest
-==22613== 
-==22613== 
-==22613== HEAP SUMMARY:
-==22613==     in use at exit: 0 bytes in 0 blocks
-==22613==   total heap usage: 3 allocs, 3 frees, 80,936 bytes allocated
-==22613== 
-==22613== All heap blocks were freed -- no leaks are possible
-==22613== 
-==22613== For counts of detected and suppressed errors, rerun with: -v
-==22613== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==32046== Memcheck, a memory error detector
+==32046== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==32046== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==32046== Command: ./mytest
+==32046== 
+==32046== 
+==32046== Process terminating with default action of signal 2 (SIGINT)
+==32046==    at 0x401CCDB: open (open64.c:47)
+==32046==    by 0x4005C06: open_verify.constprop.7 (dl-load.c:1668)
+==32046==    by 0x4008FA8: _dl_map_object (dl-load.c:2327)
+==32046==    by 0x4001304: map_doit (rtld.c:591)
+==32046==    by 0x401BC6A: _dl_catch_exception (dl-error-skeleton.c:196)
+==32046==    by 0x401BCDE: _dl_catch_error (dl-error-skeleton.c:215)
+==32046==    by 0x4002567: do_preload (rtld.c:762)
+==32046==    by 0x4002567: handle_ld_preload (rtld.c:860)
+==32046==    by 0x4003E34: dl_main (rtld.c:1618)
+==32046==    by 0x401ADCF: _dl_sysdep_start (dl-sysdep.c:253)
+==32046==    by 0x4002127: _dl_start_final (rtld.c:414)
+==32046==    by 0x4002127: _dl_start (rtld.c:521)
+==32046==    by 0x4001097: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==32046== 
+==32046== HEAP SUMMARY:
+==32046==     in use at exit: 0 bytes in 0 blocks
+==32046==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==32046== 
+==32046== All heap blocks were freed -- no leaks are possible
+==32046== 
+==32046== For counts of detected and suppressed errors, rerun with: -v
+==32046== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,60 +1,60 @@
-==21741== Memcheck, a memory error detector
-==21741== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==21741== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==21741== Command: ./mytest
-==21741== 
-==21741== Invalid read of size 8
-==21741==    at 0x401162: void ft::list<double, std::allocator<double> >::unique<bool (*)(double, double)>(bool (*)(double, double)) (listOperations.hpp:150)
-==21741==    by 0x400ADB: main (unique.cpp:29)
-==21741==  Address 0x5b7de60 is 0 bytes inside a block of size 24 free'd
-==21741==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21741==    by 0x401978: ft::list<double, std::allocator<double> >::erase(ft::list<double, std::allocator<double> >::iterator) (listModifiers.hpp:215)
-==21741==    by 0x4011A3: void ft::list<double, std::allocator<double> >::unique<bool (*)(double, double)>(bool (*)(double, double)) (listOperations.hpp:152)
-==21741==    by 0x400ADB: main (unique.cpp:29)
-==21741==  Block was alloc'd at
-==21741==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21741==    by 0x401722: ft::list<double, std::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
-==21741==    by 0x40159E: void ft::list<double, std::allocator<double> >::assign<double*>(double*, double*) (listModifiers.hpp:68)
-==21741==    by 0x400D6F: ft::list<double, std::allocator<double> >::list<double*>(double*, double*, std::allocator<double> const&) (listInit.hpp:27)
-==21741==    by 0x400AA1: main (unique.cpp:21)
-==21741== 
-==21741== Invalid read of size 8
-==21741==    at 0x4012AA: void ft::list<double, std::allocator<double> >::unique<is_near>(is_near) (listOperations.hpp:150)
-==21741==    by 0x400AE9: main (unique.cpp:32)
-==21741==  Address 0x5b7df80 is 0 bytes inside a block of size 24 free'd
-==21741==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21741==    by 0x401978: ft::list<double, std::allocator<double> >::erase(ft::list<double, std::allocator<double> >::iterator) (listModifiers.hpp:215)
-==21741==    by 0x4012EA: void ft::list<double, std::allocator<double> >::unique<is_near>(is_near) (listOperations.hpp:152)
-==21741==    by 0x400AE9: main (unique.cpp:32)
-==21741==  Block was alloc'd at
-==21741==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21741==    by 0x401722: ft::list<double, std::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
-==21741==    by 0x40159E: void ft::list<double, std::allocator<double> >::assign<double*>(double*, double*) (listModifiers.hpp:68)
-==21741==    by 0x400D6F: ft::list<double, std::allocator<double> >::list<double*>(double*, double*, std::allocator<double> const&) (listInit.hpp:27)
-==21741==    by 0x400AA1: main (unique.cpp:21)
-==21741== 
-==21741== Invalid read of size 8
-==21741==    at 0x401644: ft::list<double, std::allocator<double> >::clear() (listModifiers.hpp:100)
-==21741==    by 0x4014D8: ft::list<double, std::allocator<double> >::~list() (listInit.hpp:41)
-==21741==    by 0x400CBB: main (unique.cpp:40)
-==21741==  Address 0x5b7dcf0 is 16 bytes inside a block of size 24 free'd
-==21741==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21741==    by 0x40163F: ft::list<double, std::allocator<double> >::clear() (listModifiers.hpp:99)
-==21741==    by 0x4014D8: ft::list<double, std::allocator<double> >::~list() (listInit.hpp:41)
-==21741==    by 0x400CBB: main (unique.cpp:40)
-==21741==  Block was alloc'd at
-==21741==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==21741==    by 0x401722: ft::list<double, std::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
-==21741==    by 0x40159E: void ft::list<double, std::allocator<double> >::assign<double*>(double*, double*) (listModifiers.hpp:68)
-==21741==    by 0x400D6F: ft::list<double, std::allocator<double> >::list<double*>(double*, double*, std::allocator<double> const&) (listInit.hpp:27)
-==21741==    by 0x400AA1: main (unique.cpp:21)
-==21741== 
-==21741== 
-==21741== HEAP SUMMARY:
-==21741==     in use at exit: 0 bytes in 0 blocks
-==21741==   total heap usage: 12 allocs, 12 frees, 81,136 bytes allocated
-==21741== 
-==21741== All heap blocks were freed -- no leaks are possible
-==21741== 
-==21741== For counts of detected and suppressed errors, rerun with: -v
-==21741== ERROR SUMMARY: 7 errors from 3 contexts (suppressed: 0 from 0)
+==30995== Memcheck, a memory error detector
+==30995== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==30995== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==30995== Command: ./mytest
+==30995== 
+==30995== Invalid read of size 8
+==30995==    at 0x401162: void ft::list<double, ft::allocator<double> >::unique<bool (*)(double, double)>(bool (*)(double, double)) (listOperations.hpp:150)
+==30995==    by 0x400ADB: main (unique.cpp:29)
+==30995==  Address 0x5b7de60 is 0 bytes inside a block of size 24 free'd
+==30995==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30995==    by 0x401928: ft::list<double, ft::allocator<double> >::erase(ft::list<double, ft::allocator<double> >::iterator) (listModifiers.hpp:215)
+==30995==    by 0x4011A3: void ft::list<double, ft::allocator<double> >::unique<bool (*)(double, double)>(bool (*)(double, double)) (listOperations.hpp:152)
+==30995==    by 0x400ADB: main (unique.cpp:29)
+==30995==  Block was alloc'd at
+==30995==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30995==    by 0x4016D2: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
+==30995==    by 0x40155E: void ft::list<double, ft::allocator<double> >::assign<double*>(double*, double*) (listModifiers.hpp:68)
+==30995==    by 0x400D5F: ft::list<double, ft::allocator<double> >::list<double*>(double*, double*, ft::allocator<double> const&) (listInit.hpp:27)
+==30995==    by 0x400AA1: main (unique.cpp:21)
+==30995== 
+==30995== Invalid read of size 8
+==30995==    at 0x4012AA: void ft::list<double, ft::allocator<double> >::unique<is_near>(is_near) (listOperations.hpp:150)
+==30995==    by 0x400AE9: main (unique.cpp:32)
+==30995==  Address 0x5b7df80 is 0 bytes inside a block of size 24 free'd
+==30995==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30995==    by 0x401928: ft::list<double, ft::allocator<double> >::erase(ft::list<double, ft::allocator<double> >::iterator) (listModifiers.hpp:215)
+==30995==    by 0x4012EA: void ft::list<double, ft::allocator<double> >::unique<is_near>(is_near) (listOperations.hpp:152)
+==30995==    by 0x400AE9: main (unique.cpp:32)
+==30995==  Block was alloc'd at
+==30995==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30995==    by 0x4016D2: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
+==30995==    by 0x40155E: void ft::list<double, ft::allocator<double> >::assign<double*>(double*, double*) (listModifiers.hpp:68)
+==30995==    by 0x400D5F: ft::list<double, ft::allocator<double> >::list<double*>(double*, double*, ft::allocator<double> const&) (listInit.hpp:27)
+==30995==    by 0x400AA1: main (unique.cpp:21)
+==30995== 
+==30995== Invalid read of size 8
+==30995==    at 0x4015F4: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:100)
+==30995==    by 0x4014C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==30995==    by 0x400CC0: main (unique.cpp:40)
+==30995==  Address 0x5b7dcf0 is 16 bytes inside a block of size 24 free'd
+==30995==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30995==    by 0x4015EF: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
+==30995==    by 0x4014C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==30995==    by 0x400CC0: main (unique.cpp:40)
+==30995==  Block was alloc'd at
+==30995==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30995==    by 0x4016D2: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
+==30995==    by 0x40155E: void ft::list<double, ft::allocator<double> >::assign<double*>(double*, double*) (listModifiers.hpp:68)
+==30995==    by 0x400D5F: ft::list<double, ft::allocator<double> >::list<double*>(double*, double*, ft::allocator<double> const&) (listInit.hpp:27)
+==30995==    by 0x400AA1: main (unique.cpp:21)
+==30995== 
+==30995== 
+==30995== HEAP SUMMARY:
+==30995==     in use at exit: 0 bytes in 0 blocks
+==30995==   total heap usage: 12 allocs, 12 frees, 81,136 bytes allocated
+==30995== 
+==30995== All heap blocks were freed -- no leaks are possible
+==30995== 
+==30995== For counts of detected and suppressed errors, rerun with: -v
+==30995== ERROR SUMMARY: 7 errors from 3 contexts (suppressed: 0 from 0)

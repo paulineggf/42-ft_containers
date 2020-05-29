@@ -5,11 +5,12 @@
 # include <iostream>
 # include <exception>
 # include <algorithm>
+# include "../allocator.hpp"
 # include "reverse_iterator.hpp"
 
 namespace ft
 {
-    template <typename T, class Alloc = std::allocator<T> >
+    template <typename T, class Alloc = ft::allocator<T> >
     class   vector
     {
         public:

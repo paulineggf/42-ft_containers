@@ -2,28 +2,15 @@
 # define MAP_HPP
 
 # include <iostream>
+# include <limits>
+# include "../pair.hpp"
+# include "../allocator.hpp"
+# include "../less.hpp"
 # include "../list/list.hpp"
 
 namespace ft
 {
-    template<class Key, class T>
-    struct       pair
-    {
-        public:
-
-        Key         first;
-        T           second;
-
-        pair() {}
-        pair(Key key, T data) : first(key), second(data) {}
-        pair &operator=(const pair &x) {
-                first = x.first;
-                second = x.second;
-                return *this; }
-        ~pair() {}
-    };
-
-    template<class Key, class T, class Compare = std::less<Key>, class Alloc = std::allocator<ft::pair<Key, T> > >
+    template<class Key, class T, class Compare = ft::less<Key>, class Alloc = ft::allocator<ft::pair<Key, T> > >
     class   map
     {
         public:
