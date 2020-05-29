@@ -47,5 +47,6 @@ ft::vector<T, Alloc>::~vector()
 {
     for (size_type i = 0; i < _size; i++)
         _alloc.destroy(_arg + i);
-    _alloc.deallocate(_arg, _capacity);
+    if (_capacity > 0)
+        _alloc.deallocate(_arg, _capacity);
 }

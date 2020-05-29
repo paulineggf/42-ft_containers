@@ -1,113 +1,113 @@
-==31354== Memcheck, a memory error detector
-==31354== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==31354== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==31354== Command: ./mytest
-==31354== 
-==31354== Invalid read of size 8
-==31354==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
-==31354==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
-==31354==    by 0x401F1D: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:247)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
-==31354==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
-==31354==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
-==31354==    by 0x401F1D: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:247)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354==  Block was alloc'd at
-==31354==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
-==31354==    by 0x4019D0: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
-==31354==    by 0x401352: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
-==31354==    by 0x400A79: main (swap.cpp:10)
-==31354== 
-==31354== Invalid read of size 8
-==31354==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
-==31354==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
-==31354==    by 0x401F84: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:248)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354==  Address 0x5b7dd50 is 16 bytes inside a block of size 24 free'd
-==31354==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
-==31354==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
-==31354==    by 0x401F84: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:248)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354==  Block was alloc'd at
-==31354==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
-==31354==    by 0x4019D0: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
-==31354==    by 0x401352: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
-==31354==    by 0x400ACD: main (swap.cpp:13)
-==31354== 
-==31354== Invalid read of size 8
-==31354==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
-==31354==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==31354==    by 0x401FAE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:249)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354==  Address 0x5b7de70 is 16 bytes inside a block of size 24 free'd
-==31354==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
-==31354==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==31354==    by 0x401FAE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:249)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354==  Block was alloc'd at
-==31354==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
-==31354==    by 0x40211F: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:68)
-==31354==    by 0x401EC7: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:246)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354== 
-==31354== Invalid read of size 8
-==31354==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
-==31354==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==31354==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
-==31354==    by 0x400F26: main (swap.cpp:28)
-==31354==  Address 0x5b7e050 is 16 bytes inside a block of size 24 free'd
-==31354==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
-==31354==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==31354==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
-==31354==    by 0x400F26: main (swap.cpp:28)
-==31354==  Block was alloc'd at
-==31354==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
-==31354==    by 0x40211F: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:68)
-==31354==    by 0x401F84: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:248)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354== 
-==31354== Invalid read of size 8
-==31354==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
-==31354==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==31354==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
-==31354==    by 0x400F34: main (swap.cpp:28)
-==31354==  Address 0x5b7df30 is 16 bytes inside a block of size 24 free'd
-==31354==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
-==31354==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
-==31354==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
-==31354==    by 0x400F34: main (swap.cpp:28)
-==31354==  Block was alloc'd at
-==31354==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31354==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
-==31354==    by 0x40211F: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:68)
-==31354==    by 0x401F1D: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:247)
-==31354==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
-==31354==    by 0x400B47: main (swap.cpp:17)
-==31354== 
-==31354== 
-==31354== HEAP SUMMARY:
-==31354==     in use at exit: 0 bytes in 0 blocks
-==31354==   total heap usage: 14 allocs, 14 frees, 81,184 bytes allocated
-==31354== 
-==31354== All heap blocks were freed -- no leaks are possible
-==31354== 
-==31354== For counts of detected and suppressed errors, rerun with: -v
-==31354== ERROR SUMMARY: 12 errors from 5 contexts (suppressed: 0 from 0)
+==28364== Memcheck, a memory error detector
+==28364== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==28364== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==28364== Command: ./mytest
+==28364== 
+==28364== Invalid read of size 8
+==28364==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
+==28364==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
+==28364==    by 0x401F1D: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:247)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364==  Address 0x5b7dc90 is 16 bytes inside a block of size 24 free'd
+==28364==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
+==28364==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
+==28364==    by 0x401F1D: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:247)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364==  Block was alloc'd at
+==28364==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
+==28364==    by 0x4019D0: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
+==28364==    by 0x401352: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
+==28364==    by 0x400A79: main (swap.cpp:10)
+==28364== 
+==28364== Invalid read of size 8
+==28364==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
+==28364==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
+==28364==    by 0x401F84: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:248)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364==  Address 0x5b7dd50 is 16 bytes inside a block of size 24 free'd
+==28364==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
+==28364==    by 0x4020F0: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:65)
+==28364==    by 0x401F84: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:248)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364==  Block was alloc'd at
+==28364==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
+==28364==    by 0x4019D0: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::insert(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::pair<char, int> const&) (listModifiers.hpp:113)
+==28364==    by 0x401352: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::operator[](char const&) (mapAcces.hpp:14)
+==28364==    by 0x400ACD: main (swap.cpp:13)
+==28364== 
+==28364== Invalid read of size 8
+==28364==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
+==28364==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==28364==    by 0x401FAE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:249)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364==  Address 0x5b7de70 is 16 bytes inside a block of size 24 free'd
+==28364==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
+==28364==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==28364==    by 0x401FAE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:249)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364==  Block was alloc'd at
+==28364==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
+==28364==    by 0x40211F: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:68)
+==28364==    by 0x401EC7: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:246)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364== 
+==28364== Invalid read of size 8
+==28364==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
+==28364==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==28364==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
+==28364==    by 0x400F26: main (swap.cpp:28)
+==28364==  Address 0x5b7e050 is 16 bytes inside a block of size 24 free'd
+==28364==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
+==28364==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==28364==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
+==28364==    by 0x400F26: main (swap.cpp:28)
+==28364==  Block was alloc'd at
+==28364==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
+==28364==    by 0x40211F: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:68)
+==28364==    by 0x401F84: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:248)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364== 
+==28364== Invalid read of size 8
+==28364==    at 0x401744: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:100)
+==28364==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==28364==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
+==28364==    by 0x400F34: main (swap.cpp:28)
+==28364==  Address 0x5b7df30 is 16 bytes inside a block of size 24 free'd
+==28364==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x40173F: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::clear() (listModifiers.hpp:99)
+==28364==    by 0x401688: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::~list() (listInit.hpp:41)
+==28364==    by 0x4015B2: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::~map() (map.hpp:128)
+==28364==    by 0x400F34: main (swap.cpp:28)
+==28364==  Block was alloc'd at
+==28364==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28364==    by 0x401BEE: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::push_back(ft::pair<char, int> const&) (listModifiers.hpp:7)
+==28364==    by 0x40211F: void ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::assign<ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator>(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator, ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::iterator) (listModifiers.hpp:68)
+==28364==    by 0x401F1D: ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >::swap(ft::list<ft::pair<char, int>, ft::allocator<ft::pair<char, int> > >&) (listModifiers.hpp:247)
+==28364==    by 0x40147F: ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >::swap(ft::map<char, int, ft::less<char>, ft::allocator<ft::pair<char, int> > >&) (mapModifiers.hpp:76)
+==28364==    by 0x400B47: main (swap.cpp:17)
+==28364== 
+==28364== 
+==28364== HEAP SUMMARY:
+==28364==     in use at exit: 0 bytes in 0 blocks
+==28364==   total heap usage: 14 allocs, 14 frees, 81,184 bytes allocated
+==28364== 
+==28364== All heap blocks were freed -- no leaks are possible
+==28364== 
+==28364== For counts of detected and suppressed errors, rerun with: -v
+==28364== ERROR SUMMARY: 12 errors from 5 contexts (suppressed: 0 from 0)

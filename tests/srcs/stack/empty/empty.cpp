@@ -1,11 +1,11 @@
 // stack::empty
 #include <iostream>       // std::cout
-#include <stack>          // ft::stack
+#include <stack>          // std::stack
 #include "stack.hpp"
 
 int main ()
 {
-  ft::stack<int> mystack;
+  std::stack<int> mystack;
   int sum (0);
 
 

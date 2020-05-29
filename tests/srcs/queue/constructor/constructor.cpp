@@ -11,7 +11,7 @@ int main ()
   std::list<int> mylist (2,200);         // list with 2 elements
 
   ft::queue<int> first;                 // empty queue
-  ft::queue<int> second (mydeck);       // queue initialized to copy of deque
+  ft::queue<int, std::deque<int> > second (mydeck);       // queue initialized to copy of deque
 
   ft::queue<int,std::list<int> > third; // empty queue with list as underlying container
   ft::queue<int,std::list<int> > fourth (mylist);

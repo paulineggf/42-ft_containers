@@ -1,66 +1,66 @@
-==31019== Memcheck, a memory error detector
-==31019== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==31019== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==31019== Command: ./mytest
-==31019== 
-==31019== Conditional jump or move depends on uninitialised value(s)
-==31019==    at 0x401289: ft::list<double, ft::allocator<double> >::merge(ft::list<double, ft::allocator<double> >&) (listOperations.hpp:165)
-==31019==    by 0x400C3D: main (merge.cpp:31)
-==31019== 
-==31019== Conditional jump or move depends on uninitialised value(s)
-==31019==    at 0x4014C0: void ft::list<double, ft::allocator<double> >::merge<bool (*)(double, double)>(ft::list<double, ft::allocator<double> >&, bool (*)(double, double)) (listOperations.hpp:193)
-==31019==    by 0x400C7C: main (merge.cpp:37)
-==31019== 
-==31019== Invalid read of size 8
-==31019==    at 0x401894: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:100)
-==31019==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
-==31019==    by 0x400E65: main (merge.cpp:45)
-==31019==  Address 0x5b7e0b0 is 16 bytes inside a block of size 24 free'd
-==31019==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31019==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
-==31019==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
-==31019==    by 0x400E65: main (merge.cpp:45)
-==31019==  Block was alloc'd at
-==31019==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31019==    by 0x400F6E: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:7)
-==31019==    by 0x400C63: main (merge.cpp:35)
-==31019== 
-==31019== Invalid read of size 8
-==31019==    at 0x401894: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:100)
-==31019==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
-==31019==    by 0x400E73: main (merge.cpp:45)
-==31019==  Address 0x5b7dd50 is 16 bytes inside a block of size 24 free'd
-==31019==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31019==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
-==31019==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
-==31019==    by 0x400E73: main (merge.cpp:45)
-==31019==  Block was alloc'd at
-==31019==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31019==    by 0x400FD2: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
-==31019==    by 0x400AEB: main (merge.cpp:16)
-==31019== 
-==31019== Invalid free() / delete / delete[] / realloc()
-==31019==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31019==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
-==31019==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
-==31019==    by 0x400E73: main (merge.cpp:45)
-==31019==  Address 0x5b7e0a0 is 0 bytes inside a block of size 24 free'd
-==31019==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31019==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
-==31019==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
-==31019==    by 0x400E65: main (merge.cpp:45)
-==31019==  Block was alloc'd at
-==31019==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==31019==    by 0x400F6E: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:7)
-==31019==    by 0x400C63: main (merge.cpp:35)
-==31019== 
-==31019== 
-==31019== HEAP SUMMARY:
-==31019==     in use at exit: 0 bytes in 0 blocks
-==31019==   total heap usage: 14 allocs, 24 frees, 81,184 bytes allocated
-==31019== 
-==31019== All heap blocks were freed -- no leaks are possible
-==31019== 
-==31019== For counts of detected and suppressed errors, rerun with: -v
-==31019== Use --track-origins=yes to see where uninitialised values come from
-==31019== ERROR SUMMARY: 37 errors from 5 contexts (suppressed: 0 from 0)
+==28007== Memcheck, a memory error detector
+==28007== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==28007== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==28007== Command: ./mytest
+==28007== 
+==28007== Conditional jump or move depends on uninitialised value(s)
+==28007==    at 0x401289: ft::list<double, ft::allocator<double> >::merge(ft::list<double, ft::allocator<double> >&) (listOperations.hpp:165)
+==28007==    by 0x400C3D: main (merge.cpp:31)
+==28007== 
+==28007== Conditional jump or move depends on uninitialised value(s)
+==28007==    at 0x4014C0: void ft::list<double, ft::allocator<double> >::merge<bool (*)(double, double)>(ft::list<double, ft::allocator<double> >&, bool (*)(double, double)) (listOperations.hpp:193)
+==28007==    by 0x400C7C: main (merge.cpp:37)
+==28007== 
+==28007== Invalid read of size 8
+==28007==    at 0x401894: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:100)
+==28007==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==28007==    by 0x400E65: main (merge.cpp:45)
+==28007==  Address 0x5b7e0b0 is 16 bytes inside a block of size 24 free'd
+==28007==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28007==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
+==28007==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==28007==    by 0x400E65: main (merge.cpp:45)
+==28007==  Block was alloc'd at
+==28007==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28007==    by 0x400F6E: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:7)
+==28007==    by 0x400C63: main (merge.cpp:35)
+==28007== 
+==28007== Invalid read of size 8
+==28007==    at 0x401894: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:100)
+==28007==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==28007==    by 0x400E73: main (merge.cpp:45)
+==28007==  Address 0x5b7dd50 is 16 bytes inside a block of size 24 free'd
+==28007==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28007==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
+==28007==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==28007==    by 0x400E73: main (merge.cpp:45)
+==28007==  Block was alloc'd at
+==28007==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28007==    by 0x400FD2: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:11)
+==28007==    by 0x400AEB: main (merge.cpp:16)
+==28007== 
+==28007== Invalid free() / delete / delete[] / realloc()
+==28007==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28007==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
+==28007==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==28007==    by 0x400E73: main (merge.cpp:45)
+==28007==  Address 0x5b7e0a0 is 0 bytes inside a block of size 24 free'd
+==28007==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28007==    by 0x40188F: ft::list<double, ft::allocator<double> >::clear() (listModifiers.hpp:99)
+==28007==    by 0x4017C8: ft::list<double, ft::allocator<double> >::~list() (listInit.hpp:41)
+==28007==    by 0x400E65: main (merge.cpp:45)
+==28007==  Block was alloc'd at
+==28007==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==28007==    by 0x400F6E: ft::list<double, ft::allocator<double> >::push_back(double const&) (listModifiers.hpp:7)
+==28007==    by 0x400C63: main (merge.cpp:35)
+==28007== 
+==28007== 
+==28007== HEAP SUMMARY:
+==28007==     in use at exit: 0 bytes in 0 blocks
+==28007==   total heap usage: 14 allocs, 24 frees, 81,184 bytes allocated
+==28007== 
+==28007== All heap blocks were freed -- no leaks are possible
+==28007== 
+==28007== For counts of detected and suppressed errors, rerun with: -v
+==28007== Use --track-origins=yes to see where uninitialised values come from
+==28007== ERROR SUMMARY: 37 errors from 5 contexts (suppressed: 0 from 0)

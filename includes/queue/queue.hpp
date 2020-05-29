@@ -2,11 +2,11 @@
 # define QUEUE_HPP
 
 # include <iostream>
-# include <deque>
+# include "../list/list.hpp"
 
 namespace ft
 {
-    template <class T, class Container = std::deque<T> >
+    template <class T, class Container = ft::list<T> >
     class   queue
     {
         public:
